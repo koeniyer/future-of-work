@@ -14,94 +14,146 @@
   - Before submitting: search for "placeholder" and "editor-note". Nothing with those classes should be left.
   - Hosting: drag the folder containing this file (already named index.html) onto Netlify Drop, or put it in a GitHub Pages repo.
 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#1c2430; --muted:#5b6675; --line:#dde2e8; --bg:#ffffff; --soft:#f4f6f9;
-    --accent:#1f5f7a; --accent-soft:#e6f0f4;
-    --flex:#1f5f7a; --ai:#5a4a8c; --genz:#2f7a4f; --well:#a04a3c;
+    --ink:#17202b; --muted:#5a6472; --line:#d9dde3; --paper:#ffffff; --soft:#f3f5f7;
+    --flex:#0e5a6b; --ai:#3b3486; --genz:#1f6b45; --well:#8a2f55;
+    --accent:var(--ink);
+    --serif:"Newsreader",Georgia,"Times New Roman",serif;
+    --sans:"Schibsted Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
     --todo-bg:#fff8e1; --todo-line:#e0b23a; --todo-ink:#6b5310;
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
-  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-       color:var(--ink);background:var(--bg);line-height:1.65;font-size:17px}
-  a{color:var(--accent)}
+  html{scroll-behavior:smooth;scroll-padding-top:4rem}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;font-family:var(--serif);color:var(--ink);background:var(--paper);
+       font-size:19px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.18em}
+  a:focus-visible{outline:3px solid #f2b705;outline-offset:3px;border-radius:2px}
+  p{margin:0 0 1.15rem}
+
   /* Navigation */
-  .topnav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
-  .topnav ul{list-style:none;margin:0 auto;padding:0 .75rem;max-width:1100px;display:flex;gap:.25rem;
-             overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .topnav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);
+          border-bottom:1px solid var(--line);font-family:var(--sans)}
+  .topnav ul{list-style:none;margin:0 auto;padding:0 1rem;max-width:1180px;display:flex;gap:.1rem;
+             overflow-x:auto;white-space:nowrap;scrollbar-width:none}
   .topnav ul::-webkit-scrollbar{display:none}
-  .topnav a{display:block;padding:.9rem .7rem;text-decoration:none;color:var(--ink);font-size:.92rem;font-weight:600;
-            border-bottom:3px solid transparent}
-  .topnav a:hover,.topnav a:focus{border-bottom-color:var(--accent);color:var(--accent)}
+  .topnav a{display:flex;align-items:center;gap:.45rem;padding:.85rem .7rem;text-decoration:none;
+            font-size:.82rem;font-weight:600;color:var(--muted);border-bottom:3px solid transparent}
+  .topnav a:hover{color:var(--ink)}
+  .topnav a.active{color:var(--ink);border-bottom-color:var(--c,var(--ink))}
+  .topnav .dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--c)}
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .topnav .home{font-family:var(--serif);font-weight:600;font-size:1rem;color:var(--ink)}
+
   /* Layout */
-  main{max-width:780px;margin:0 auto;padding:0 1.25rem 4rem}
-  section.page{padding-top:3rem;margin-top:1rem;border-top:1px solid var(--line)}
-  section.page:first-of-type{border-top:none}
-  h1{font-size:2.6rem;line-height:1.15;margin:0 0 .5rem;letter-spacing:-.01em}
-  h2{font-size:1.85rem;line-height:1.25;margin:0 0 .25rem}
-  h3{font-size:1.3rem;line-height:1.3;margin:2.5rem 0 .75rem}
-  h4{font-size:1.05rem;margin:1.5rem 0 .5rem}
-  p{margin:0 0 1rem}
-  .eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;font-weight:700;color:var(--muted);margin:0 0 .4rem}
-  .byline{color:var(--muted);margin:0 0 1.5rem}
-  /* Hero */
-  .hero{padding:3.5rem 0 1rem}
-  .hero .sub{font-size:1.15rem;color:var(--muted);margin-bottom:1.25rem}
-  .members{display:flex;flex-wrap:wrap;gap:.5rem;padding:0;margin:0 0 1.5rem;list-style:none}
-  .members li{background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:.25rem .8rem;font-size:.9rem}
-  /* Theme cards */
-  .themes{display:grid;grid-template-columns:1fr;gap:1rem;margin:1.5rem 0}
-  @media (min-width:640px){.themes{grid-template-columns:1fr 1fr}}
-  .card{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-top:4px solid var(--accent);
-        border-radius:8px;padding:1rem 1.1rem;background:#fff}
-  .card:hover{box-shadow:0 2px 10px rgba(0,0,0,.06)}
-  .card strong{display:block;font-size:1.05rem;margin-bottom:.2rem}
-  .card span{color:var(--muted);font-size:.93rem}
-  .t-flex{border-top-color:var(--flex)} .t-ai{border-top-color:var(--ai)}
-  .t-genz{border-top-color:var(--genz)} .t-well{border-top-color:var(--well)}
-  /* Section colour bars */
-  .theme-bar{height:6px;width:64px;border-radius:3px;margin-bottom:1rem;background:var(--accent)}
-  #flexibility .theme-bar{background:var(--flex)} #ai .theme-bar{background:var(--ai)}
-  #genz .theme-bar{background:var(--genz)} #wellbeing .theme-bar{background:var(--well)}
-  /* Media info box */
-  .meta{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:.9rem 1.1rem;margin:0 0 1.25rem;
-        display:grid;grid-template-columns:1fr;gap:.15rem .9rem;font-size:.95rem}
-  @media (min-width:560px){.meta{grid-template-columns:9.5rem 1fr}}
-  .meta dt{font-weight:700;color:var(--muted)}
-  .meta dd{margin:0 0 .35rem}
-  .tags{display:flex;flex-wrap:wrap;gap:.35rem;margin:0;padding:0;list-style:none}
-  .tags li{background:var(--accent-soft);color:var(--accent);border-radius:4px;padding:.05rem .5rem;font-size:.85rem;font-weight:600}
-  .source{font-size:.92rem;color:var(--muted);border-left:3px solid var(--line);padding-left:.9rem;margin-top:1rem}
+  main{max-width:1180px;margin:0 auto;padding:0 1.5rem 5rem}
+  .page{padding-top:4.5rem}
+  .bleed{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
+
+  /* Masthead */
+  .hero{padding-top:3.5rem}
+  .hero .course{font-family:var(--sans);font-size:.88rem;font-weight:500;color:var(--muted);margin:0 0 1.5rem}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(3.6rem,12vw,9.5rem);line-height:.92;
+           letter-spacing:-.035em;margin:0 0 2rem;font-variation-settings:"opsz" 72}
+  .hero .deck{display:grid;gap:1.5rem 3rem;grid-template-columns:1fr;margin-bottom:3.5rem}
+  @media (min-width:900px){.hero .deck{grid-template-columns:5fr 7fr}}
+  .hero .sub{font-size:1.5rem;line-height:1.35;font-style:italic;margin:0}
+  .members{list-style:none;padding:0;margin:.9rem 0 0;font-family:var(--sans);font-size:.92rem;color:var(--muted)}
+  .members li{display:inline}
+  .members li:not(:last-child)::after{content:",\00a0"}
+  .intro p{max-width:40rem}
+
+  /* Contents bands: the signature element */
+  .contents{list-style:none;margin-top:0;margin-bottom:0;padding:0}
+  .contents a{display:grid;grid-template-columns:1fr;gap:.3rem 2rem;align-items:baseline;text-decoration:none;color:#fff;
+              background:var(--c);padding:1.6rem max(1.5rem,calc(50vw - 590px + 1.5rem))}
+  @media (min-width:760px){.contents a{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto;padding-top:2rem;padding-bottom:2rem}}
+  .contents .t{font-size:clamp(2rem,5vw,3.6rem);line-height:1.05;letter-spacing:-.02em;font-weight:500}
+  .contents .d{font-size:1.05rem;line-height:1.45;opacity:.88}
+  .contents .by{font-family:var(--sans);font-size:.85rem;font-weight:600;opacity:.9}
+  .contents a:hover .t,.contents a:focus-visible .t{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.12em}
+  .contents a:focus-visible{outline-offset:-6px;outline-color:#fff}
+
+  /* Theme opener bands */
+  .opener{background:var(--c);color:#fff;padding:4.5rem max(1.5rem,calc(50vw - 590px + 1.5rem)) 3.5rem;margin-bottom:3.5rem}
+  .opener h2{font-weight:500;font-size:clamp(2.6rem,7vw,5.5rem);line-height:1;letter-spacing:-.03em;margin:0 0 1.25rem;max-width:16ch}
+  .opener .byline{font-family:var(--sans);font-size:.95rem;font-weight:600;margin:0;opacity:.92}
+  #flexibility{--c:var(--flex)} #ai{--c:var(--ai)} #genz{--c:var(--genz)} #wellbeing{--c:var(--well)}
+  .topnav a[href="#flexibility"]{--c:var(--flex)} .topnav a[href="#ai"]{--c:var(--ai)}
+  .topnav a[href="#genz"]{--c:var(--genz)} .topnav a[href="#wellbeing"]{--c:var(--well)}
+
+  /* Articles: margin column for source details on wide screens */
+  article{padding:0 0 3.5rem;margin:0 0 3.5rem;border-bottom:1px solid var(--line)}
+  .theme article:last-of-type{border-bottom:none}
+  article h3{font-weight:500;font-size:clamp(1.7rem,3.4vw,2.4rem);line-height:1.15;letter-spacing:-.015em;margin:0 0 1.5rem;max-width:30ch}
+  article > p, article > .placeholder, article > .source{max-width:40rem}
+  @media (min-width:960px){
+    article{display:grid;grid-template-columns:15rem minmax(0,40rem);column-gap:3.5rem;align-items:start}
+    article > *{grid-column:2}
+    article > h3{grid-column:1 / -1}
+    article > .meta{grid-column:1;grid-row:2 / span 30;position:sticky;top:5rem}
+  }
+  article > p:first-of-type::first-letter{float:left;font-size:3.6em;line-height:.85;padding:.08em .1em 0 0;color:var(--c);font-weight:500}
+
+  .meta{margin:0 0 1.75rem;font-family:var(--sans);font-size:.84rem;line-height:1.45;border-top:3px solid var(--c);padding-top:.9rem}
+  .meta dt{font-weight:700;color:var(--ink);margin-top:.7rem}
+  .meta dt:first-child{margin-top:0}
+  .meta dd{margin:.1rem 0 0;color:var(--muted)}
+  .tags{list-style:none;margin:.25rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.3rem}
+  .tags li{color:var(--c);border:1px solid currentColor;border-radius:999px;padding:.05rem .55rem;font-weight:600;font-size:.8rem}
+
+  .source{font-size:.88rem;line-height:1.5;color:var(--muted);background:var(--soft);padding:1rem 1.2rem;margin-top:1.5rem;border-radius:3px}
   .source p{margin:0 0 .5rem;padding-left:1.5rem;text-indent:-1.5rem;word-break:break-word}
+  .source p:first-child{font-family:var(--sans);text-indent:0;padding:0}
+  .source p:last-child{margin:0}
+  .source strong{font-weight:700;color:var(--ink)}
+
+  .back{font-family:var(--sans);font-size:.85rem;font-weight:600;color:var(--muted)}
+
   /* Placeholders (delete before submitting) */
-  .placeholder{background:var(--todo-bg);border:2px dashed var(--todo-line);border-radius:8px;padding:1rem 1.1rem;
-               color:var(--todo-ink);margin:0 0 1.25rem;font-size:.95rem}
+  .placeholder{background:var(--todo-bg);border:2px dashed var(--todo-line);border-radius:6px;padding:1rem 1.1rem;
+               color:var(--todo-ink);margin:0 0 1.25rem;font-family:var(--sans);font-size:.9rem;line-height:1.5}
   .placeholder strong{display:block;margin-bottom:.35rem}
   .placeholder ul{margin:.35rem 0 0;padding-left:1.2rem}
-  .meta .todo{color:var(--todo-ink);background:var(--todo-bg);padding:0 .3rem;border-radius:3px}
-  .editor-note{background:#eef4ff;border:1px solid #b9cdf2;border-radius:8px;padding:.9rem 1.1rem;font-size:.93rem;color:#29406b;margin:1rem 0}
-  /* Index lists */
-  .index{list-style:none;padding:0;margin:1rem 0}
-  .index li{border:1px solid var(--line);border-radius:8px;padding:.8rem 1rem;margin-bottom:.6rem}
-  .index .who{font-weight:700}
-  .index .what{color:var(--muted);font-size:.93rem}
+  .todo{color:var(--todo-ink);background:var(--todo-bg);padding:0 .3rem;border-radius:3px;font-family:var(--sans);font-size:.8em}
+  .editor-note{background:#eef4ff;border:1px solid #b9cdf2;border-radius:6px;padding:.9rem 1.1rem;font-family:var(--sans);
+               font-size:.9rem;line-height:1.5;color:#29406b;margin:1rem 0 2rem;max-width:44rem}
+
+  /* Index pages */
+  .page > h2{font-weight:500;font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.025em;line-height:1.05;margin:0 0 .5rem}
+  .page > .byline{font-style:italic;color:var(--muted);font-size:1.15rem;margin:0 0 2rem}
+  .index{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;border-top:1px solid var(--ink)}
+  @media (min-width:760px){.index{grid-template-columns:1fr 1fr}}
+  .index li{padding:1.25rem 1.5rem 1.4rem 1rem;border-bottom:1px solid var(--line);border-left:4px solid var(--c)}
+  .index li:nth-child(1){--c:var(--flex)} .index li:nth-child(2){--c:var(--ai)}
+  .index li:nth-child(3){--c:var(--genz)} .index li:nth-child(4){--c:var(--well)}
+  .index .who{font-size:1.35rem;font-weight:500;text-decoration:none}
+  .index .who:hover{text-decoration:underline}
+  .index .what{display:block;color:var(--muted);font-size:1rem;line-height:1.5;margin-top:.25rem}
+
   /* References */
-  .refs p{padding-left:2.5rem;text-indent:-2.5rem;margin:0 0 1rem;word-break:break-word}
-  .refs .placeholder{text-indent:0}
-  footer{border-top:1px solid var(--line);color:var(--muted);font-size:.88rem;text-align:center;padding:2rem 1rem}
-  .back{font-size:.88rem;display:inline-block;margin-top:1.5rem}
+  .refs > p{max-width:46rem;padding-left:2.5rem;text-indent:-2.5rem;margin:0 0 1rem;word-break:break-word;font-size:1rem;line-height:1.6}
+  .refs .placeholder{max-width:46rem}
+
+  footer{background:var(--ink);color:#c9d0d9;font-family:var(--sans);font-size:.85rem;line-height:1.6;padding:3rem 1.5rem}
+  footer p{max-width:1180px;margin:0 auto}
+  footer strong{display:block;color:#fff;font-family:var(--serif);font-weight:500;font-size:1.6rem;margin-bottom:.4rem}
+  @media print{.topnav{display:none}.opener,.contents a{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 </style>
 </head>
 <body>
 
 <nav class="topnav" aria-label="Main">
   <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#flexibility">Flexibility</a></li>
-    <li><a href="#ai">AI and Technology</a></li>
-    <li><a href="#genz">Gen Z Expectations</a></li>
-    <li><a href="#wellbeing">Well-being and Burnout</a></li>
+    <li><a class="home" href="#home">The Future of Work</a></li>
+    <li><a href="#flexibility"><span class="dot"></span>Flexibility</a></li>
+    <li><a href="#ai"><span class="dot"></span>AI and Technology</a></li>
+    <li><a href="#genz"><span class="dot"></span>Gen Z Expectations</a></li>
+    <li><a href="#wellbeing"><span class="dot"></span>Well-being and Burnout</a></li>
     <li><a href="#personal-examples">Personal Examples</a></li>
     <li><a href="#skills">Skills Summaries</a></li>
     <li><a href="#references">References</a></li>
@@ -112,32 +164,37 @@
 
 <!-- ===================================================== HOME ===================================================== -->
 <section id="home" class="page hero">
-  <p class="eyebrow">BUAD 262 Organizational Behaviour &middot; Okanagan College</p>
-  <h1>The Future of Work</h1>
-  <p class="sub">A website portfolio by Group 8</p>
-  <ul class="members">
-    <li>Noah Cheavins</li><li>Koen Iyer</li><li>Caleb Mcfarlane</li><li>Juliana Silva Reis</li>
-  </ul>
-
-  <!-- Draft intro written as a starting point. The group should review and edit it on Thursday. -->
-  <p>Work is changing quickly. Where people work, the tools they use, what new employees expect from their employers, and how organizations protect the health of their people are all being rethought at the same time. This portfolio looks at those changes through the lens of organizational behaviour.</p>
-  <p>Each group member focused on one theme and gathered media on it: corporate cultures, recent business articles, scholarly peer-reviewed articles, and podcasts. For every item we summarize the source, connect it to concepts from the course, and explain what it means for the future of work. Each member also shares a personal workplace example and a summary of the course concepts they will use in their own careers.</p>
-
-  <h2 style="font-size:1.35rem;margin-top:2rem">Our four themes</h2>
-  <div class="themes">
-    <a class="card t-flex" href="#flexibility"><strong>Flexibility</strong><span>Remote and hybrid work, and what it takes to make them work. By Koen Iyer.</span></a>
-    <a class="card t-ai" href="#ai"><strong>AI and Technology</strong><span>How AI is changing work for employees and managers. By Noah Cheavins.</span></a>
-    <a class="card t-genz" href="#genz"><strong>Gen Z Expectations</strong><span>What the newest generation of workers expects, and what employers expect back. By Caleb Mcfarlane.</span></a>
-    <a class="card t-well" href="#wellbeing"><strong>Well-being and Burnout</strong><span>Emotional labour, organizational support, and burnout. By Juliana Silva Reis.</span></a>
+  <p class="course">BUAD 262 Organizational Behaviour, Okanagan College</p>
+  <h1>The Future<br>of Work</h1>
+  <div class="deck">
+    <div>
+      <p class="sub">A website portfolio by Group 8</p>
+      <ul class="members">
+        <li>Noah Cheavins</li><li>Koen Iyer</li><li>Caleb Mcfarlane</li><li>Juliana Silva Reis</li>
+      </ul>
+    </div>
+    <div class="intro">
+      <!-- Draft intro written as a starting point. The group should review and edit it on Thursday. -->
+      <p>Work is changing quickly. Where people work, the tools they use, what new employees expect from their employers, and how organizations protect the health of their people are all being rethought at the same time. This portfolio looks at those changes through the lens of organizational behaviour.</p>
+      <p>Each group member focused on one theme and gathered media on it: corporate cultures, recent business articles, scholarly peer-reviewed articles, and podcasts. For every item we summarize the source, connect it to concepts from the course, and explain what it means for the future of work. Each member also shares a personal workplace example and a summary of the course concepts they will use in their own careers.</p>
+    </div>
   </div>
+
+  <h2 class="visually-hidden">Our four themes</h2>
+  <ul class="contents bleed">
+    <li><a href="#flexibility" style="--c:var(--flex)"><span class="t">Flexibility</span><span class="d">Remote and hybrid work, and what it takes to make them work.</span><span class="by">Koen Iyer</span></a></li>
+    <li><a href="#ai" style="--c:var(--ai)"><span class="t">AI and Technology</span><span class="d">How AI is changing work for employees and managers.</span><span class="by">Noah Cheavins</span></a></li>
+    <li><a href="#genz" style="--c:var(--genz)"><span class="t">Gen Z Expectations</span><span class="d">What the newest generation of workers expects, and what employers expect back.</span><span class="by">Caleb Mcfarlane</span></a></li>
+    <li><a href="#wellbeing" style="--c:var(--well)"><span class="t">Well-being and Burnout</span><span class="d">Emotional labour, organizational support, and burnout.</span><span class="by">Juliana Silva Reis</span></a></li>
+  </ul>
 </section>
 
 <!-- ===================================================== FLEXIBILITY (KOEN) ===================================================== -->
-<section id="flexibility" class="page">
-  <div class="theme-bar"></div>
-  <p class="eyebrow">Theme 1</p>
-  <h2>Flexibility: Remote and Hybrid Work</h2>
-  <p class="byline">By Koen Iyer</p>
+<section id="flexibility" class="page theme">
+  <header class="opener bleed">
+    <h2>Flexibility: Remote and Hybrid Work</h2>
+    <p class="byline">By Koen Iyer</p>
+  </header>
 
   <!-- ---------- Corporate Culture ---------- -->
   <article id="koen-culture">
@@ -205,11 +262,11 @@
 </section>
 
 <!-- ===================================================== AI AND TECHNOLOGY (NOAH) ===================================================== -->
-<section id="ai" class="page">
-  <div class="theme-bar"></div>
-  <p class="eyebrow">Theme 2</p>
-  <h2>AI and Technology</h2>
-  <p class="byline">By Noah Cheavins</p>
+<section id="ai" class="page theme">
+  <header class="opener bleed">
+    <h2>AI and Technology</h2>
+    <p class="byline">By Noah Cheavins</p>
+  </header>
 
   <article id="noah-culture">
     <h3>Corporate Culture: <span class="todo">[Company name to be added]</span></h3>
@@ -258,11 +315,11 @@
 </section>
 
 <!-- ===================================================== GEN Z (CALEB) ===================================================== -->
-<section id="genz" class="page">
-  <div class="theme-bar"></div>
-  <p class="eyebrow">Theme 3</p>
-  <h2>Gen Z Expectations</h2>
-  <p class="byline">By Caleb Mcfarlane</p>
+<section id="genz" class="page theme">
+  <header class="opener bleed">
+    <h2>Gen Z Expectations</h2>
+    <p class="byline">By Caleb Mcfarlane</p>
+  </header>
 
   <article id="caleb-scholarly">
     <h3>Scholarly Article: <span class="todo">[Article title to be added]</span></h3>
@@ -311,11 +368,11 @@
 </section>
 
 <!-- ===================================================== WELL-BEING (JULIANA) ===================================================== -->
-<section id="wellbeing" class="page">
-  <div class="theme-bar"></div>
-  <p class="eyebrow">Theme 4</p>
-  <h2>Well-being and Burnout</h2>
-  <p class="byline">By Juliana Silva Reis</p>
+<section id="wellbeing" class="page theme">
+  <header class="opener bleed">
+    <h2>Well-being and Burnout</h2>
+    <p class="byline">By Juliana Silva Reis</p>
+  </header>
 
   <article id="juliana-scholarly">
     <h3>Scholarly Article: Yin and Chen (2026) <span class="todo">[full title to be added]</span></h3>
@@ -416,9 +473,25 @@
 </main>
 
 <footer>
-  <p>The Future of Work &middot; Group 8: Noah Cheavins, Koen Iyer, Caleb Mcfarlane, Juliana Silva Reis<br>
-  BUAD 262 Organizational Behaviour &middot; Professor Patrick Schryburt &middot; Okanagan College &middot; Fall 2026</p>
+  <p><strong>The Future of Work</strong>
+  Group 8: Noah Cheavins, Koen Iyer, Caleb Mcfarlane, Juliana Silva Reis<br>
+  BUAD 262 Organizational Behaviour, Professor Patrick Schryburt, Okanagan College, Fall 2026</p>
 </footer>
+
+<script>
+  // Highlights the current section in the top navigation while scrolling.
+  (function(){
+    var links=[].slice.call(document.querySelectorAll('.topnav a[href^="#"]'));
+    var map={}; links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+    if(!('IntersectionObserver' in window))return;
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting&&map[e.target.id]){links.forEach(function(a){a.classList.remove('active');});map[e.target.id].classList.add('active');}
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});
+  })();
+</script>
 
 </body>
 </html>

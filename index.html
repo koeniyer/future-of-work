@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Future of Work | Group 8 | BUAD 262</title>
+<meta name="description" content="The Future of Work: a website portfolio by Group 8, BUAD 262 Organizational Behaviour, Okanagan College.">
+<!--
+  HOW TO EDIT THIS FILE
+  - Everything is in this one file. Open it in any text editor (VS Code, TextEdit in plain-text mode, Notepad).
+  - Every spot that still needs content is a box with class="placeholder". Search this file for
+    "PASTE HERE" to jump to each one. Replace the whole placeholder <div> with your <p> paragraphs.
+  - Each paragraph goes inside <p> ... </p>.
+  - Before submitting: search for "placeholder" and "editor-note". Nothing with those classes should be left.
+  - Hosting: drag the folder containing this file (already named index.html) onto Netlify Drop, or put it in a GitHub Pages repo.
+-->
+<style>
+  :root{
+    --ink:#1c2430; --muted:#5b6675; --line:#dde2e8; --bg:#ffffff; --soft:#f4f6f9;
+    --accent:#1f5f7a; --accent-soft:#e6f0f4;
+    --flex:#1f5f7a; --ai:#5a4a8c; --genz:#2f7a4f; --well:#a04a3c;
+    --todo-bg:#fff8e1; --todo-line:#e0b23a; --todo-ink:#6b5310;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+       color:var(--ink);background:var(--bg);line-height:1.65;font-size:17px}
+  a{color:var(--accent)}
+  /* Navigation */
+  .topnav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
+  .topnav ul{list-style:none;margin:0 auto;padding:0 .75rem;max-width:1100px;display:flex;gap:.25rem;
+             overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .topnav ul::-webkit-scrollbar{display:none}
+  .topnav a{display:block;padding:.9rem .7rem;text-decoration:none;color:var(--ink);font-size:.92rem;font-weight:600;
+            border-bottom:3px solid transparent}
+  .topnav a:hover,.topnav a:focus{border-bottom-color:var(--accent);color:var(--accent)}
+  /* Layout */
+  main{max-width:780px;margin:0 auto;padding:0 1.25rem 4rem}
+  section.page{padding-top:3rem;margin-top:1rem;border-top:1px solid var(--line)}
+  section.page:first-of-type{border-top:none}
+  h1{font-size:2.6rem;line-height:1.15;margin:0 0 .5rem;letter-spacing:-.01em}
+  h2{font-size:1.85rem;line-height:1.25;margin:0 0 .25rem}
+  h3{font-size:1.3rem;line-height:1.3;margin:2.5rem 0 .75rem}
+  h4{font-size:1.05rem;margin:1.5rem 0 .5rem}
+  p{margin:0 0 1rem}
+  .eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;font-weight:700;color:var(--muted);margin:0 0 .4rem}
+  .byline{color:var(--muted);margin:0 0 1.5rem}
+  /* Hero */
+  .hero{padding:3.5rem 0 1rem}
+  .hero .sub{font-size:1.15rem;color:var(--muted);margin-bottom:1.25rem}
+  .members{display:flex;flex-wrap:wrap;gap:.5rem;padding:0;margin:0 0 1.5rem;list-style:none}
+  .members li{background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:.25rem .8rem;font-size:.9rem}
+  /* Theme cards */
+  .themes{display:grid;grid-template-columns:1fr;gap:1rem;margin:1.5rem 0}
+  @media (min-width:640px){.themes{grid-template-columns:1fr 1fr}}
+  .card{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-top:4px solid var(--accent);
+        border-radius:8px;padding:1rem 1.1rem;background:#fff}
+  .card:hover{box-shadow:0 2px 10px rgba(0,0,0,.06)}
+  .card strong{display:block;font-size:1.05rem;margin-bottom:.2rem}
+  .card span{color:var(--muted);font-size:.93rem}
+  .t-flex{border-top-color:var(--flex)} .t-ai{border-top-color:var(--ai)}
+  .t-genz{border-top-color:var(--genz)} .t-well{border-top-color:var(--well)}
+  /* Section colour bars */
+  .theme-bar{height:6px;width:64px;border-radius:3px;margin-bottom:1rem;background:var(--accent)}
+  #flexibility .theme-bar{background:var(--flex)} #ai .theme-bar{background:var(--ai)}
+  #genz .theme-bar{background:var(--genz)} #wellbeing .theme-bar{background:var(--well)}
+  /* Media info box */
+  .meta{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:.9rem 1.1rem;margin:0 0 1.25rem;
+        display:grid;grid-template-columns:1fr;gap:.15rem .9rem;font-size:.95rem}
+  @media (min-width:560px){.meta{grid-template-columns:9.5rem 1fr}}
+  .meta dt{font-weight:700;color:var(--muted)}
+  .meta dd{margin:0 0 .35rem}
+  .tags{display:flex;flex-wrap:wrap;gap:.35rem;margin:0;padding:0;list-style:none}
+  .tags li{background:var(--accent-soft);color:var(--accent);border-radius:4px;padding:.05rem .5rem;font-size:.85rem;font-weight:600}
+  .source{font-size:.92rem;color:var(--muted);border-left:3px solid var(--line);padding-left:.9rem;margin-top:1rem}
+  .source p{margin:0 0 .5rem;padding-left:1.5rem;text-indent:-1.5rem;word-break:break-word}
+  /* Placeholders (delete before submitting) */
+  .placeholder{background:var(--todo-bg);border:2px dashed var(--todo-line);border-radius:8px;padding:1rem 1.1rem;
+               color:var(--todo-ink);margin:0 0 1.25rem;font-size:.95rem}
+  .placeholder strong{display:block;margin-bottom:.35rem}
+  .placeholder ul{margin:.35rem 0 0;padding-left:1.2rem}
+  .meta .todo{color:var(--todo-ink);background:var(--todo-bg);padding:0 .3rem;border-radius:3px}
+  .editor-note{background:#eef4ff;border:1px solid #b9cdf2;border-radius:8px;padding:.9rem 1.1rem;font-size:.93rem;color:#29406b;margin:1rem 0}
+  /* Index lists */
+  .index{list-style:none;padding:0;margin:1rem 0}
+  .index li{border:1px solid var(--line);border-radius:8px;padding:.8rem 1rem;margin-bottom:.6rem}
+  .index .who{font-weight:700}
+  .index .what{color:var(--muted);font-size:.93rem}
+  /* References */
+  .refs p{padding-left:2.5rem;text-indent:-2.5rem;margin:0 0 1rem;word-break:break-word}
+  .refs .placeholder{text-indent:0}
+  footer{border-top:1px solid var(--line);color:var(--muted);font-size:.88rem;text-align:center;padding:2rem 1rem}
+  .back{font-size:.88rem;display:inline-block;margin-top:1.5rem}
+</style>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Main">
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#flexibility">Flexibility</a></li>
+    <li><a href="#ai">AI and Technology</a></li>
+    <li><a href="#genz">Gen Z Expectations</a></li>
+    <li><a href="#wellbeing">Well-being and Burnout</a></li>
+    <li><a href="#personal-examples">Personal Examples</a></li>
+    <li><a href="#skills">Skills Summaries</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- ===================================================== HOME ===================================================== -->
+<section id="home" class="page hero">
+  <p class="eyebrow">BUAD 262 Organizational Behaviour &middot; Okanagan College</p>
+  <h1>The Future of Work</h1>
+  <p class="sub">A website portfolio by Group 8</p>
+  <ul class="members">
+    <li>Noah Cheavins</li><li>Koen Iyer</li><li>Caleb Mcfarlane</li><li>Juliana Silva Reis</li>
+  </ul>
+
+  <!-- Draft intro written as a starting point. The group should review and edit it on Thursday. -->
+  <p>Work is changing quickly. Where people work, the tools they use, what new employees expect from their employers, and how organizations protect the health of their people are all being rethought at the same time. This portfolio looks at those changes through the lens of organizational behaviour.</p>
+  <p>Each group member focused on one theme and gathered media on it: corporate cultures, recent business articles, scholarly peer-reviewed articles, and podcasts. For every item we summarize the source, connect it to concepts from the course, and explain what it means for the future of work. Each member also shares a personal workplace example and a summary of the course concepts they will use in their own careers.</p>
+
+  <h2 style="font-size:1.35rem;margin-top:2rem">Our four themes</h2>
+  <div class="themes">
+    <a class="card t-flex" href="#flexibility"><strong>Flexibility</strong><span>Remote and hybrid work, and what it takes to make them work. By Koen Iyer.</span></a>
+    <a class="card t-ai" href="#ai"><strong>AI and Technology</strong><span>How AI is changing work for employees and managers. By Noah Cheavins.</span></a>
+    <a class="card t-genz" href="#genz"><strong>Gen Z Expectations</strong><span>What the newest generation of workers expects, and what employers expect back. By Caleb Mcfarlane.</span></a>
+    <a class="card t-well" href="#wellbeing"><strong>Well-being and Burnout</strong><span>Emotional labour, organizational support, and burnout. By Juliana Silva Reis.</span></a>
+  </div>
+</section>
+
+<!-- ===================================================== FLEXIBILITY (KOEN) ===================================================== -->
+<section id="flexibility" class="page">
+  <div class="theme-bar"></div>
+  <p class="eyebrow">Theme 1</p>
+  <h2>Flexibility: Remote and Hybrid Work</h2>
+  <p class="byline">By Koen Iyer</p>
+
+  <!-- ---------- Corporate Culture ---------- -->
+  <article id="koen-culture">
+    <h3>Corporate Culture: Dropbox, "Virtual First"</h3>
+    <dl class="meta">
+      <dt>Source and type</dt><dd>Corporate culture. Dropbox Blog (company announcement) and MIT Sloan School of Management (business school article)</dd>
+      <dt>Author</dt><dd>Dropbox; M. Somers</dd>
+      <dt>Date</dt><dd>October 13, 2020; October 27, 2021</dd>
+      <dt>OB concepts</dt><dd><ul class="tags"><li>Job satisfaction</li><li>Four-Drive theory (Bond, Defend)</li></ul></dd>
+    </dl>
+
+    <p>Dropbox makes cloud storage and collaboration tools for teams that work from different places, and in 2020 it announced it was becoming a "Virtual First" company (Dropbox, 2020). Virtual First is the name of its culture, and remote work is the default for individual work, not the exception. To support that, Dropbox changed its offices into Dropbox Studios, which are only used for collaboration and community, and it set core collaboration hours so teams in different time zones still overlap, with employees planning the rest of their day around that (Dropbox, 2020).</p>
+    <p>This was based on research, including a study Dropbox commissioned that found knowledge workers were more focused at home and just as engaged as before, along with its own surveys showing nearly 90% of employees felt productive at home and did not want a rigid five-day office week (Dropbox, 2020). Dropbox did not go with a regular hybrid model because that can create two different experiences, where people in the office get ahead while remote workers fall behind. Instead, the culture is maintained by keeping Studios for group work only and focusing on results instead of hours worked, and a year later the model was still in place, with Studios reopened in San Francisco, Austin, and Dublin (Somers, 2021).</p>
+    <p>This matters for Dropbox because it uses the same type of work it sells, so it understands its customers better, and it also helps with hiring because jobs are location agnostic, which CEO Drew Houston said was a big advantage for recruiting (Somers, 2021). It connects to job satisfaction because employees feel better about their job when it fits what they value, like work-life balance and not having a long commute, and it also connects to Four-Drive theory, where Studios and core hours support the Bond drive by giving people time to connect and work together, while avoiding a two-tier system supports the Defend drive because it is more fair. For the future of work, Dropbox shows that flexibility works better when it is planned out as a system, not just left up to each person to figure out.</p>
+
+    <div class="source">
+      <p><strong>Sources</strong></p>
+      <p>Dropbox. (2020, October 13). Dropbox goes Virtual First. <em>Dropbox Blog</em>. https://blog.dropbox.com/topics/company/dropbox-goes-virtual-first</p>
+      <p>Somers, M. (2021, October 27). Dropbox CEO: 3 insights from leading a 'virtual first' workforce. MIT Sloan School of Management. https://mitsloan.mit.edu/ideas-made-to-matter/dropbox-ceo-3-insights-leading-a-virtual-first-workforce</p>
+    </div>
+  </article>
+
+  <!-- ---------- Business Article ---------- -->
+  <article id="koen-article">
+    <h3>Business Article: Hybrid Still Isn't Working</h3>
+    <dl class="meta">
+      <dt>Source and type</dt><dd>Recent business article. <em>Harvard Business Review</em></dd>
+      <dt>Author</dt><dd>P. Cappelli and R. Nehmeh</dd>
+      <dt>Date</dt><dd>July 1, 2025</dd>
+      <dt>OB concepts</dt><dd><ul class="tags"><li>Expectancy theory</li><li>Equity theory</li></ul></dd>
+    </dl>
+
+    <p>Cappelli and Nehmeh (2025) wrote in Harvard Business Review that hybrid work is not working in a lot of companies, not because flexibility itself is the problem, but because managers are still managing hybrid teams the same way they managed everyone in the office. The article is based on interviews with 720 employees at a financial services company, across 38 offices in three countries, plus other recent research (Cappelli &amp; Nehmeh, 2025).</p>
+    <p>They found a few main issues, starting with new hires having a harder time learning because they are not around experienced staff as much, while helping coworkers gets pushed aside because people are measured on their own key performance indicators (KPIs). At the same time, virtual meetings get bigger and less useful, and promotions tend to reward individual output over teamwork. Their fix is not to bring everyone back to the office, but to set clear rules for meetings and response times, use anchor days where everyone is in together, and build performance reviews that actually reward helping others (Cappelli &amp; Nehmeh, 2025).</p>
+    <p>This connects to expectancy theory because motivation depends on effort leading to performance, performance leading to a reward, and the employee actually valuing that reward, so if only individual KPIs are rewarded, there is not much reason to spend time helping someone else, even if the company says teamwork matters. It also connects to equity theory because employees compare what they put in and what they get out with other people, so if being seen in the office leads to better promotions than working remotely, that feels unfair, and employees may do less, push for more, or leave. For the future of work, the point is simple: flexibility is not just about how many days people are in the office, and companies have to change how they manage if they want hybrid work to actually work.</p>
+
+    <div class="source">
+      <p><strong>Source</strong></p>
+      <p>Cappelli, P., &amp; Nehmeh, R. (2025, July 1). Hybrid still isn't working. <em>Harvard Business Review</em>. https://hbr.org/2025/07/hybrid-still-isnt-working</p>
+    </div>
+  </article>
+
+  <!-- ---------- Personal Example ---------- -->
+  <article id="koen-personal">
+    <h3>Personal Example</h3>
+    <dl class="meta">
+      <dt>OB concepts</dt><dd><ul class="tags"><li>Job satisfaction</li><li>Expectancy theory</li></ul></dd>
+    </dl>
+    <p>From winter 2024 to spring 2026, I worked in sales for a custom home builder, where I managed a showhome every weekend on a team that was disorganized, with no mentor to learn from and very little interaction with team members. I only spoke with the owner two or three times, and most of the work was busywork and cold calls that led to nothing. I also had no flexibility, since I had to come into an empty showhome to make calls I could have made from home, and taking time off was hard to afford. All of that lowered my job satisfaction, which is how positive an employee feels about their job, and I was disengaged because the work did not fit what I valued.</p>
+    <p>Reward was a problem too, because I would get a fixed commission if I took a lead to the closer and it closed, and while that amount motivated me a lot, I only received it one time. I was put in a location that was not set up for success, so a lot of it was out of my control, which connects to expectancy theory, since my effort did not reliably lead to performance, and performance did not reliably lead to a reward. I used the free time at that job to practice videography in the showhome and plan my own business, and I have now worked full time for myself for a little over six months, while also contracting for a media company where the owner mentors me and helps me build proper systems. Now what I sell is what I earn, and if something is not working, I can fix it myself.</p>
+    <p>Traditionally, the previous generation followed a more set path, where you went to school, got a job, and got going, and you often stayed in that job even if you were not satisfied. My generation is more willing to leave a job that does not fit and build a different path, including self-employment, because flexibility and satisfaction matter more in that decision, not just pay and security. My experience shows that change, since I left a set schedule and a set location for work I control, and my satisfaction is much higher because of it.</p>
+  </article>
+
+  <!-- ---------- Skills Summary ---------- -->
+  <article id="koen-skills">
+    <h3>Skills Summary</h3>
+    <dl class="meta">
+      <dt>Course concepts</dt><dd><ul class="tags"><li>Goal-setting</li><li>Self-efficacy</li><li>Job satisfaction</li></ul></dd>
+    </dl>
+    <p>Goal-setting theory taught me how to set a goal so that I can actually achieve it, because a specific and challenging goal is much easier to work toward than a vague one. Over the last six months, I have used the SMART acronym many times while setting goals for my business, making them specific, measurable, and tied to a timeline, and being able to hit those goals has made me feel like I am on the right track. As my business grows, I will keep using that same approach for client work and for my own targets, so that progress is measured by results instead of just by hours worked.</p>
+    <p>Self-efficacy has changed the most for me in practice, since it is about believing that you can actually do the task in front of you. When I first started pitching brands, it felt like the scariest thing in the world, and I was not sure anyone would take me seriously. The first time I pitched something and someone bought, I felt like I got over that fear, because I finally had proof that I could do it. Now I pitch different people and brands a couple of times a month, and that confidence will matter even more in the future as I take on bigger jobs and approach larger clients.</p>
+    <p>Job satisfaction is the third concept I will carry forward, and my experience in my previous paragraph is the reason why. I learned that satisfaction is not just about pay, since the commission in my sales job motivated me but was not enough to keep me engaged when the work had no flexibility, no mentorship, and no real sense of progress. Now that I am building my own business, I want to create the opposite of that for myself and for anyone who works with me in the future, with clear systems, real support, and flexibility where it is possible, so that people actually want to stay and do good work.</p>
+  </article>
+  <a class="back" href="#home">Back to top</a>
+</section>
+
+<!-- ===================================================== AI AND TECHNOLOGY (NOAH) ===================================================== -->
+<section id="ai" class="page">
+  <div class="theme-bar"></div>
+  <p class="eyebrow">Theme 2</p>
+  <h2>AI and Technology</h2>
+  <p class="byline">By Noah Cheavins</p>
+
+  <article id="noah-culture">
+    <h3>Corporate Culture: <span class="todo">[Company name to be added]</span></h3>
+    <dl class="meta">
+      <dt>Source and type</dt><dd><span class="todo">[to be added]</span></dd>
+      <dt>Author</dt><dd><span class="todo">[to be added]</span></dd>
+      <dt>Date</dt><dd><span class="todo">[to be added]</span></dd>
+      <dt>OB concepts</dt><dd><span class="todo">[to be added]</span></dd>
+    </dl>
+    <!-- PASTE HERE: Noah, corporate culture text. Replace this whole <div> with your <p> paragraphs. -->
+    <div class="placeholder">
+      <strong>[Content coming: to be added]</strong>
+      A company that is progressive about AI in the workplace, focusing on how it treats employees, not just its products. Cover:
+      <ul><li>Brief summary</li><li>OB concepts it connects to (chapter terms)</li><li>How it relates to the future of work</li><li>Full APA reference</li></ul>
+    </div>
+  </article>
+
+  <article id="noah-podcast">
+    <h3>Podcast: <span class="todo">[Podcast and episode title to be added]</span></h3>
+    <dl class="meta">
+      <dt>Source and type</dt><dd>Podcast. <span class="todo">[show name to be added]</span></dd>
+      <dt>Host / guest</dt><dd><span class="todo">[to be added]</span></dd>
+      <dt>Date</dt><dd><span class="todo">[to be added]</span></dd>
+      <dt>OB concepts</dt><dd><span class="todo">[to be added]</span></dd>
+    </dl>
+    <!-- PASTE HERE: Noah, podcast text. Optional: paste a podcast embed player or link above the text. -->
+    <div class="placeholder">
+      <strong>[Content coming: to be added]</strong>
+      A podcast on how AI is changing work and what it means for employees and managers. Cover:
+      <ul><li>Brief summary</li><li>OB concepts it connects to (chapter terms)</li><li>How it relates to the future of work</li><li>Full APA reference</li></ul>
+    </div>
+  </article>
+
+  <article id="noah-personal">
+    <h3>Personal Example</h3>
+    <!-- PASTE HERE: Noah, personal workplace OB example. -->
+    <div class="placeholder"><strong>[Content coming: to be added]</strong>Noah's personal workplace example, naming the OB concepts it shows.</div>
+  </article>
+
+  <article id="noah-skills">
+    <h3>Skills Summary</h3>
+    <!-- PASTE HERE: Noah, skills summary. -->
+    <div class="placeholder"><strong>[Content coming: to be added]</strong>2 to 3 course concepts and how Noah will use them in his future career.</div>
+  </article>
+  <a class="back" href="#home">Back to top</a>
+</section>
+
+<!-- ===================================================== GEN Z (CALEB) ===================================================== -->
+<section id="genz" class="page">
+  <div class="theme-bar"></div>
+  <p class="eyebrow">Theme 3</p>
+  <h2>Gen Z Expectations</h2>
+  <p class="byline">By Caleb Mcfarlane</p>
+
+  <article id="caleb-scholarly">
+    <h3>Scholarly Article: <span class="todo">[Article title to be added]</span></h3>
+    <dl class="meta">
+      <dt>Source and type</dt><dd>Scholarly peer-reviewed article. <span class="todo">[journal name to be added]</span></dd>
+      <dt>Author</dt><dd><span class="todo">[to be added]</span></dd>
+      <dt>Date</dt><dd><span class="todo">[to be added]</span></dd>
+      <dt>OB concepts</dt><dd><span class="todo">[to be added]</span></dd>
+    </dl>
+    <!-- PASTE HERE: Caleb, scholarly article text. -->
+    <div class="placeholder">
+      <strong>[Content coming: to be added]</strong>
+      A peer-reviewed article on Gen Z at work and the implications for managers and employees. Cover:
+      <ul><li>Brief summary</li><li>OB concepts it connects to (chapter terms)</li><li>How it relates to the future of work</li><li>Full APA reference</li></ul>
+    </div>
+  </article>
+
+  <article id="caleb-article">
+    <h3>Business Article: <span class="todo">[Article title to be added]</span></h3>
+    <dl class="meta">
+      <dt>Source and type</dt><dd>Recent business article. <span class="todo">[publication to be added]</span></dd>
+      <dt>Author</dt><dd><span class="todo">[to be added]</span></dd>
+      <dt>Date</dt><dd><span class="todo">[to be added]</span></dd>
+      <dt>OB concepts</dt><dd><span class="todo">[to be added]</span></dd>
+    </dl>
+    <!-- PASTE HERE: Caleb, business article text. -->
+    <div class="placeholder">
+      <strong>[Content coming: to be added]</strong>
+      A business article on what Gen Z expects from employers, or what employers now expect from workers. Cover:
+      <ul><li>Brief summary</li><li>OB concepts it connects to (chapter terms)</li><li>How it relates to the future of work</li><li>Full APA reference</li></ul>
+    </div>
+  </article>
+
+  <article id="caleb-personal">
+    <h3>Personal Example</h3>
+    <!-- PASTE HERE: Caleb, personal workplace OB example. -->
+    <div class="placeholder"><strong>[Content coming: to be added]</strong>Caleb's personal workplace example, naming the OB concepts it shows.</div>
+  </article>
+
+  <article id="caleb-skills">
+    <h3>Skills Summary</h3>
+    <!-- PASTE HERE: Caleb, skills summary. -->
+    <div class="placeholder"><strong>[Content coming: to be added]</strong>2 to 3 course concepts and how Caleb will use them in his future career.</div>
+  </article>
+  <a class="back" href="#home">Back to top</a>
+</section>
+
+<!-- ===================================================== WELL-BEING (JULIANA) ===================================================== -->
+<section id="wellbeing" class="page">
+  <div class="theme-bar"></div>
+  <p class="eyebrow">Theme 4</p>
+  <h2>Well-being and Burnout</h2>
+  <p class="byline">By Juliana Silva Reis</p>
+
+  <article id="juliana-scholarly">
+    <h3>Scholarly Article: Yin and Chen (2026) <span class="todo">[full title to be added]</span></h3>
+    <dl class="meta">
+      <dt>Source and type</dt><dd>Scholarly peer-reviewed article. <span class="todo">[journal name to be added]</span></dd>
+      <dt>Author</dt><dd>Yin and Chen <span class="todo">[initials to be added]</span></dd>
+      <dt>Date</dt><dd>2026</dd>
+      <dt>Topic</dt><dd>Emotional labour, organizational support, and burnout in young workers</dd>
+      <dt>OB concepts</dt><dd><span class="todo">[to be added]</span></dd>
+    </dl>
+    <!-- PASTE HERE: Juliana, scholarly article text. -->
+    <div class="placeholder">
+      <strong>[Content coming: to be added]</strong>
+      Cover:
+      <ul><li>Brief summary</li><li>OB concepts it connects to (chapter terms)</li><li>How it relates to the future of work</li><li>Full APA reference</li></ul>
+    </div>
+  </article>
+
+  <article id="juliana-podcast">
+    <h3>Podcast: What Do We Need to Know About Burnout?</h3>
+    <dl class="meta">
+      <dt>Source and type</dt><dd>Podcast. CBC, <em>The Dose</em></dd>
+      <dt>Guest</dt><dd>Michael Leiter</dd>
+      <dt>Host</dt><dd><span class="todo">[to be added]</span></dd>
+      <dt>Date</dt><dd>December 2025 <span class="todo">[exact date to be added]</span></dd>
+      <dt>OB concepts</dt><dd><span class="todo">[to be added]</span></dd>
+    </dl>
+    <!-- PASTE HERE: Juliana, podcast text. Optional: paste a podcast embed player or link above the text. -->
+    <div class="placeholder">
+      <strong>[Content coming: to be added]</strong>
+      Cover:
+      <ul><li>Brief summary</li><li>OB concepts it connects to (chapter terms)</li><li>How it relates to the future of work</li><li>Full APA reference</li></ul>
+    </div>
+  </article>
+
+  <article id="juliana-personal">
+    <h3>Personal Example</h3>
+    <!-- PASTE HERE: Juliana, personal workplace OB example. -->
+    <div class="placeholder"><strong>[Content coming: to be added]</strong>Juliana's personal workplace example, naming the OB concepts it shows.</div>
+  </article>
+
+  <article id="juliana-skills">
+    <h3>Skills Summary</h3>
+    <!-- PASTE HERE: Juliana, skills summary. -->
+    <div class="placeholder"><strong>[Content coming: to be added]</strong>2 to 3 course concepts and how Juliana will use them in her future career.</div>
+  </article>
+  <a class="back" href="#home">Back to top</a>
+</section>
+
+<!-- ===================================================== PERSONAL EXAMPLES (INDEX) ===================================================== -->
+<!-- Each person's text lives once, inside their theme section. This page links to them, so nothing has to be pasted twice. -->
+<section id="personal-examples" class="page">
+  <h2>Personal Examples</h2>
+  <p class="byline">Each group member's own workplace experience, viewed through organizational behaviour concepts.</p>
+  <ul class="index">
+    <li><a class="who" href="#koen-personal">Koen Iyer</a><br><span class="what">Sales for a custom home builder, and moving to self-employment. Concepts: job satisfaction, expectancy theory.</span></li>
+    <li><a class="who" href="#noah-personal">Noah Cheavins</a><br><span class="what">[Content coming: to be added]</span></li>
+    <li><a class="who" href="#caleb-personal">Caleb Mcfarlane</a><br><span class="what">[Content coming: to be added]</span></li>
+    <li><a class="who" href="#juliana-personal">Juliana Silva Reis</a><br><span class="what">[Content coming: to be added]</span></li>
+  </ul>
+</section>
+
+<!-- ===================================================== SKILLS SUMMARIES (INDEX) ===================================================== -->
+<section id="skills" class="page">
+  <h2>Skills Summaries</h2>
+  <p class="byline">The course concepts each of us will carry into our careers.</p>
+  <ul class="index">
+    <li><a class="who" href="#koen-skills">Koen Iyer</a><br><span class="what">Goal-setting, self-efficacy, job satisfaction.</span></li>
+    <li><a class="who" href="#noah-skills">Noah Cheavins</a><br><span class="what">[Content coming: to be added]</span></li>
+    <li><a class="who" href="#caleb-skills">Caleb Mcfarlane</a><br><span class="what">[Content coming: to be added]</span></li>
+    <li><a class="who" href="#juliana-skills">Juliana Silva Reis</a><br><span class="what">[Content coming: to be added]</span></li>
+  </ul>
+</section>
+
+<!-- ===================================================== REFERENCES ===================================================== -->
+<section id="references" class="page refs">
+  <h2>References</h2>
+
+  <!-- Delete this note before submitting. -->
+  <div class="editor-note">
+    <strong>Group note (delete before submitting):</strong> The brief requires at least 10 references, listed alphabetically by first author. Koen contributes 3, so the group needs at least 7 more from the other members' items. The other six media items give one reference each, which only brings the total to 9, so at least one item needs a second source (or another source the group cites) to reach 10. When you paste a reference, move it to its correct alphabetical spot and delete its placeholder.
+  </div>
+
+  <p>Cappelli, P., &amp; Nehmeh, R. (2025, July 1). Hybrid still isn't working. <em>Harvard Business Review</em>. https://hbr.org/2025/07/hybrid-still-isnt-working</p>
+  <p>Dropbox. (2020, October 13). Dropbox goes Virtual First. <em>Dropbox Blog</em>. https://blog.dropbox.com/topics/company/dropbox-goes-virtual-first</p>
+  <p>Somers, M. (2021, October 27). Dropbox CEO: 3 insights from leading a 'virtual first' workforce. MIT Sloan School of Management. https://mitsloan.mit.edu/ideas-made-to-matter/dropbox-ceo-3-insights-leading-a-virtual-first-workforce</p>
+
+  <!-- PASTE HERE: references 4 to 10+. Each one as <p>Reference text</p>, then re-sort the whole list alphabetically. -->
+  <div class="placeholder"><strong>Reference 4: [to be added]</strong>Noah, corporate culture source.</div>
+  <div class="placeholder"><strong>Reference 5: [to be added]</strong>Noah, podcast.</div>
+  <div class="placeholder"><strong>Reference 6: [to be added]</strong>Caleb, scholarly peer-reviewed article.</div>
+  <div class="placeholder"><strong>Reference 7: [to be added]</strong>Caleb, business article.</div>
+  <div class="placeholder"><strong>Reference 8: [to be added]</strong>Juliana, Yin and Chen (2026) scholarly article.</div>
+  <div class="placeholder"><strong>Reference 9: [to be added]</strong>Juliana, CBC <em>The Dose</em> podcast with Michael Leiter.</div>
+  <div class="placeholder"><strong>Reference 10: [to be added]</strong>Additional source needed to reach the 10-reference minimum.</div>
+</section>
+
+</main>
+
+<footer>
+  <p>The Future of Work &middot; Group 8: Noah Cheavins, Koen Iyer, Caleb Mcfarlane, Juliana Silva Reis<br>
+  BUAD 262 Organizational Behaviour &middot; Professor Patrick Schryburt &middot; Okanagan College &middot; Fall 2026</p>
+</footer>
+
+</body>
+</html>

@@ -2,7 +2,7 @@
 
 Website portfolio for **BUAD 262 Organizational Behaviour**, Okanagan College (Fall 2026).
 
-**Group 8:** Noah Cheavins, Koen Iyer, Caleb McFarlane, Juliana Silva Reis
+**Group 8:** Noah Steingart, Koen Iyer, Caleb McFarlane, Juliana Silva Reis
 
 **Live site:** https://koeniyer.github.io/future-of-work/
 
@@ -17,7 +17,7 @@ Website portfolio for **BUAD 262 Organizational Behaviour**, Okanagan College (F
 ## Themes
 
 1. Flexibility: remote and hybrid work (Koen Iyer)
-2. AI and Technology (Noah Cheavins)
+2. AI and Technology (Noah Steingart)
 3. Gen Z Expectations (Caleb McFarlane)
 4. Well-being and Burnout (Juliana Silva Reis)
 

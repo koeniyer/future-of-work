@@ -80,7 +80,6 @@
     article > h3{grid-column:1 / -1}
     article > .meta{grid-column:1;grid-row:2 / span 30;position:sticky;top:5rem}
   }
-  article > p:first-of-type::first-letter{float:left;font-size:3.6em;line-height:.85;padding:.08em .1em 0 0;color:var(--c);font-weight:500}
 
   .meta{margin:0 0 1.75rem;font-family:var(--sans);font-size:.84rem;line-height:1.45;border-top:3px solid var(--c);padding-top:.9rem}
   .meta dt{font-weight:700;color:var(--ink);margin-top:.7rem}
@@ -123,6 +122,36 @@
   footer p{max-width:1180px;margin:0 auto}
   footer strong{display:block;color:#fff;font-family:var(--serif);font-weight:500;font-size:1.6rem;margin-bottom:.4rem}
   @media print{.topnav{display:none}.opener,.contents a{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+  .kicker{display:block;font-style:normal;font-family:var(--sans);font-size:.8rem;font-weight:700;color:var(--c);margin-bottom:.55rem}
+  article:not(.personal):not(.skills):not(.podcast) > p:first-of-type::first-letter{float:left;font-size:3.6em;line-height:.85;padding:.08em .1em 0 0;color:var(--c);font-weight:500}
+  .pull{margin:1.75rem 0 2rem;padding:1.4rem 0;border-top:2px solid var(--c);border-bottom:1px solid var(--c);font-size:clamp(1.4rem,2.4vw,1.85rem);line-height:1.3;font-style:italic;color:var(--c);max-width:36rem}
+  .podcast{background:color-mix(in srgb,var(--c) 7%,#fff);border-radius:6px;padding:2.25rem clamp(1.25rem,3vw,2.5rem) 2.5rem;border-bottom:none}
+  .podcast .meta{border-top-color:var(--c)}
+  .listen{display:inline-flex;align-items:center;gap:.55rem;justify-self:start;min-height:44px;margin:0 0 1.75rem;padding:.6rem 1.15rem;
+          background:var(--c);color:#fff;border-radius:999px;font-family:var(--sans);font-size:.9rem;font-weight:600;text-decoration:none}
+  .listen svg{width:.75rem;height:.75rem}
+  .listen:hover{filter:brightness(1.12)}
+  .scholarly .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr));gap:.9rem 2rem}
+  .scholarly .meta dt{margin-top:0}
+  .scholarly h3{font-style:italic}
+  .personal{border-left:4px solid var(--c);padding-left:clamp(1rem,3vw,2.5rem);border-bottom:none}
+  .personal > p{font-size:1.06em;max-width:44rem}
+  .personal .meta{border-top:none;padding-top:0;display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .8rem}
+  .personal .meta dt,.skills .meta dt{margin:0}
+  .personal .meta dd,.skills .meta dd{margin:0}
+  .skills .meta{border-top:none;padding-top:0;display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .8rem}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));gap:1.25rem}
+  .card{background:var(--soft);border-top:3px solid var(--c);border-radius:3px;padding:1.4rem 1.5rem 1.1rem;font-size:.95em;line-height:1.65}
+  .card h4{margin-top:0}
+  .card p:last-child{margin-bottom:0}
+  .analysis{border-bottom:1px solid var(--line)}
+  @media (min-width:960px){
+    .personal,.skills{display:block}
+    .scholarly{grid-template-columns:minmax(0,46rem)}
+    .scholarly > *{grid-column:1}
+    .scholarly > .meta{grid-column:1;grid-row:auto;position:static;margin-bottom:2rem}
+  }
 </style>
 </head>
 <body>
@@ -162,12 +191,12 @@
 
 <section id="flexibility" class="page theme">
   <header class="opener bleed">
-    <h2>Flexibility: Remote and Hybrid Work</h2>
+    <h2>Flexibility</h2>
     <p class="byline">By Koen Iyer</p>
   </header>
 
-  <article id="koen-culture">
-    <h3>Corporate Culture: Dropbox, "Virtual First"</h3>
+  <article id="koen-culture" class="culture">
+    <h3><span class="kicker">Corporate Culture</span>Dropbox, "Virtual First"</h3>
     <dl class="meta">
       <dt>Source and type</dt><dd>Corporate culture. Dropbox Blog (company announcement) and MIT Sloan School of Management (business school article)</dd>
       <dt>Author</dt><dd>Dropbox; M. Somers</dd>
@@ -186,8 +215,8 @@
     </div>
   </article>
 
-  <article id="koen-article">
-    <h3>Business Article: Hybrid Still Isn't Working</h3>
+  <article id="koen-article" class="article">
+    <h3><span class="kicker">Business Article</span>Hybrid Still Isn't Working</h3>
     <dl class="meta">
       <dt>Source and type</dt><dd>Recent business article. <em>Harvard Business Review</em></dd>
       <dt>Author</dt><dd>P. Cappelli and R. Nehmeh</dd>
@@ -205,24 +234,32 @@
     </div>
   </article>
 
-  <article id="koen-personal">
+  <article id="koen-personal" class="personal">
     <h3>Personal Example</h3>
     <dl class="meta">
       <dt>OB concepts</dt><dd><ul class="tags"><li>Job satisfaction</li><li>Expectancy theory</li></ul></dd>
     </dl>
     <p>From winter 2024 to spring 2026, I worked in sales for a custom home builder, where I managed a showhome every weekend on a team that was disorganized, with no mentor to learn from and very little interaction with team members. I only spoke with the owner two or three times, and most of the work was busywork and cold calls that led to nothing. I also had no flexibility, since I had to come into an empty showhome to make calls I could have made from home, and taking time off was hard to afford. All of that lowered my job satisfaction, which is how positive an employee feels about their job, and I was disengaged because the work did not fit what I valued.</p>
+    <blockquote class="pull" aria-hidden="true">Now what I sell is what I earn, and if something is not working, I can fix it myself.</blockquote>
     <p>Reward was a problem too, because I would get a fixed commission if I took a lead to the closer and it closed, and while that amount motivated me a lot, I only received it one time. I was put in a location that was not set up for success, so a lot of it was out of my control, which connects to expectancy theory, since my effort did not reliably lead to performance, and performance did not reliably lead to a reward. I used the free time at that job to practice videography in the showhome and plan my own business, and I have now worked full time for myself for a little over six months, while also contracting for a media company where the owner mentors me and helps me build proper systems. Now what I sell is what I earn, and if something is not working, I can fix it myself.</p>
     <p>Traditionally, the previous generation followed a more set path, where you went to school, got a job, and got going, and you often stayed in that job even if you were not satisfied. My generation is more willing to leave a job that does not fit and build a different path, including self-employment, because flexibility and satisfaction matter more in that decision, not just pay and security. My experience shows that change, since I left a set schedule and a set location for work I control, and my satisfaction is much higher because of it.</p>
   </article>
 
-  <article id="koen-skills">
+  <article id="koen-skills" class="skills">
     <h3>Skills Summary</h3>
     <dl class="meta">
       <dt>Course concepts</dt><dd><ul class="tags"><li>Goal-setting</li><li>Self-efficacy</li><li>Job satisfaction</li></ul></dd>
     </dl>
-    <p>Goal-setting theory taught me how to set a goal so that I can actually achieve it, because a specific and challenging goal is much easier to work toward than a vague one. Over the last six months, I have used the SMART acronym many times while setting goals for my business, making them specific, measurable, and tied to a timeline, and being able to hit those goals has made me feel like I am on the right track. As my business grows, I will keep using that same approach for client work and for my own targets, so that progress is measured by results instead of just by hours worked.</p>
+    <div class="cards">
+      <div class="card">    <p>Goal-setting theory taught me how to set a goal so that I can actually achieve it, because a specific and challenging goal is much easier to work toward than a vague one. Over the last six months, I have used the SMART acronym many times while setting goals for my business, making them specific, measurable, and tied to a timeline, and being able to hit those goals has made me feel like I am on the right track. As my business grows, I will keep using that same approach for client work and for my own targets, so that progress is measured by results instead of just by hours worked.</p>
+      </div>
+      <div class="card">
     <p>Self-efficacy has changed the most for me in practice, since it is about believing that you can actually do the task in front of you. When I first started pitching brands, it felt like the scariest thing in the world, and I was not sure anyone would take me seriously. The first time I pitched something and someone bought, I felt like I got over that fear, because I finally had proof that I could do it. Now I pitch different people and brands a couple of times a month, and that confidence will matter even more in the future as I take on bigger jobs and approach larger clients.</p>
+      </div>
+      <div class="card">
     <p>Job satisfaction is the third concept I will carry forward, and my experience in my previous paragraph is the reason why. I learned that satisfaction is not just about pay, since the commission in my sales job motivated me but was not enough to keep me engaged when the work had no flexibility, no mentorship, and no real sense of progress. Now that I am building my own business, I want to create the opposite of that for myself and for anyone who works with me in the future, with clear systems, real support, and flexibility where it is possible, so that people actually want to stay and do good work.</p>
+      </div>
+    </div>
   </article>
   <a class="back" href="#home">Back to top</a>
 </section>
@@ -233,8 +270,8 @@
     <p class="byline">By Noah Steingart</p>
   </header>
 
-  <article id="noah-culture">
-    <h3>Corporate Culture: Insight Enterprises, Flight Academy</h3>
+  <article id="noah-culture" class="culture">
+    <h3><span class="kicker">Corporate Culture</span>Insight Enterprises, Flight Academy</h3>
     <dl class="meta">
       <dt>Source and type</dt><dd>Corporate culture. Microsoft partner case study</dd>
       <dt>Author</dt><dd>Microsoft</dd>
@@ -250,8 +287,9 @@
     </div>
   </article>
 
-  <article id="noah-podcast">
-    <h3>Podcast: How AI Is Changing Talent, Not Just Tasks: Rethinking Where Human Judgment Matters Most</h3>
+  <article id="noah-podcast" class="podcast">
+    <h3><span class="kicker">Podcast</span>How AI Is Changing Talent, Not Just Tasks: Rethinking Where Human Judgment Matters Most</h3>
+    <a class="listen" href="https://podcasts.apple.com/us/podcast/how-ai-is-changing-talent-not-just-tasks-rethinking/id152022135?i=1000790404293" target="_blank" rel="noopener"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"/></svg>Listen to the episode</a>
     <dl class="meta">
       <dt>Source and type</dt><dd>Podcast episode. <em>HBR IdeaCast</em> (Harvard Business Review)</dd>
       <dt>Host / guest</dt><dd>Adi Ignatius (host); Paula Goldman (guest)</dd>
@@ -260,6 +298,7 @@
     </dl>
     <h4>Summary</h4>
     <p>In this episode, Salesforce’s Chief Ethical and Humane Use Officer Paula Goldman discusses how artificial intelligence is fundamentally reshaping organizational leadership, talent management, and job design. She is dissecting the idea that AI use in the workplace is limited to automating isolated individual tasks. She argues that treating AI solely as a cost-cutting tool causes companies to miss its strategic potential. Goldman also stresses that managers must redesign corporate entry-level roles and foster internal mobility within the corporation even after the introduction of AI. Lastly, the podcast speaks to the new ethical frameworks that must be introduced and upheld when incorporating one’s own work with generative AI models.</p>
+    <blockquote class="pull" aria-hidden="true">Implementing ideas proposed by AI without a review by actual human stakeholders is a critical perceptual error.</blockquote>
     <h4>Organizational Behaviour Connection</h4>
     <p>This episode connects directly to job design, leadership and perceptual errors. As AI absorbs repetitive, routine tasks, human roles shift toward higher task significance requiring managers to redesign roles so entry-level workers still develop competencies rather than feeling alienated and virtually useless in the corporate hierarchy. It also highlights transformational leadership, as leaders must actively guide cultural adaptation and how the firm can effectively use AI while still leading employees and helping them feel useful in the corporation. Lastly, the podcast stresses the need for leaders and employees to be aware of perceptual bias when using AI. In some cases, stakeholders within a company can use AI for information and perceive the information as flawless because they are viewing it with perceptual bias because they believe AI cannot steer them wrong. Implementing ideas proposed by AI without a review by actual human stakeholders is a critical perceptual error.</p>
     <div class="source">
@@ -268,13 +307,13 @@
     </div>
   </article>
 
-  <article id="noah-scholarly">
-    <h3>Scholarly Article: How Artificial Intelligence (AI) Usage Affects Employees’ Workplace Well-Being: A Job Demands–Resources Perspective</h3>
+  <article id="noah-scholarly" class="scholarly">
+    <h3><span class="kicker">Scholarly Article</span>How Artificial Intelligence (AI) Usage Affects Employees’ Workplace Well-Being: A Job Demands–Resources Perspective</h3>
     <dl class="meta">
-      <dt>Source and type</dt><dd>Peer-reviewed scholarly article. <em>Personnel Review</em></dd>
-      <dt>Author</dt><dd>Y. Zhang, Z. Lai, X. Liu, and H. Sun</dd>
-      <dt>Date</dt><dd>April 29, 2026</dd>
-      <dt>OB concepts</dt><dd><ul class="tags"><li>Workplace stress</li><li>Job satisfaction</li><li>Personality and motivation</li></ul></dd>
+      <div><dt>Source and type</dt><dd>Peer-reviewed scholarly article. <em>Personnel Review</em></dd></div>
+      <div><dt>Author</dt><dd>Y. Zhang, Z. Lai, X. Liu, and H. Sun</dd></div>
+      <div><dt>Date</dt><dd>April 29, 2026</dd></div>
+      <div><dt>OB concepts</dt><dd><ul class="tags"><li>Workplace stress</li><li>Job satisfaction</li><li>Personality and motivation</li></ul></dd></div>
     </dl>
     <h4>Summary</h4>
     <p>Drawing on the Job Demands–Resources (JD–R) model, this study investigates the dual-natured impact of workplace AI usage on employee well-being. The authors demonstrate that AI acts as a job resource by automating repetitive workflows and lowering cognitive load on employees. Increasing AI-supported job autonomy can trigger role ambiguity and job insecurity. They further find that individual regulatory focus moderates these effects, where employees with a promotion focus experience less job insecurity from AI adoption than those with a prevention focus.</p>
@@ -288,7 +327,7 @@
     </div>
   </article>
 
-  <article id="noah-personal">
+  <article id="noah-personal" class="personal">
     <h3>Personal Example</h3>
     <dl class="meta">
       <dt>OB concepts</dt><dd><ul class="tags"><li>Job satisfaction</li><li>Expectancy theory</li></ul></dd>
@@ -298,19 +337,28 @@
     <p>Compared to previous generations of small-business owners who relied entirely on manual paperwork or had to hire administrative staff just to scale, my generation treats AI as an accessible operational partner. Instead of viewing technology as a replacement for hands-on work, using AI to handle repetitive back-office tasks allows a small-time operation to stay competitive.</p>
   </article>
 
-  <article id="noah-skills">
+  <article id="noah-skills" class="skills">
     <h3>Skills Summary</h3>
     <dl class="meta">
       <dt>Course concepts</dt><dd><ul class="tags"><li>Projection</li><li>Workplace stress management</li><li>Perceptual bias</li><li>Job design and job satisfaction</li></ul></dd>
     </dl>
-    <h4>Projection</h4>
+    <div class="cards">
+      <div class="card">    <h4>Projection</h4>
     <p>My views on how AI should be used in the workplace as a business owner or as an employee/manager are not shared by everyone. I must be careful when I argue for these types of strategies as to not project my views onto others and disregard their opinions against AI use. Although I believe the use can improve corporate culture I must uphold my desire for strong corporate culture by not projecting these views onto my employees, coworkers or managers.</p>
+      </div>
+      <div class="card">
     <h4>Workplace Stress Management</h4>
     <p>By identifying repetitive administrative tasks as avoidable job demands and using AI tools as a resource to streamline estimates and scheduling, I will be able to prevent burnout during peak landscaping seasons. Moving forward, whether I am scaling my own business or working within a larger organization, I will intentionally audit workflows to ensure technology frees up human capacity rather than creating constant tedious distraction.</p>
+      </div>
+      <div class="card">
     <h4>Perceptual Bias</h4>
     <p>My perspective on this has grown significantly as I have learned to pair my own practical judgment with AI tools to tackle unfamiliar business tasks. Early on, creating professional marketing materials, client contracts, and structured project plans felt intimidating without a formal design or administrative background. Going forward I can use AI to complete lots of these tasks efficiently while still overseeing how AI is completing it and I still must audit its completed task to confirm it’s up to my standards. Not allowing myself to fully trust AI’s input prevents any perceptual bias. This can help with strong corporate culture because as perception becomes aligned between members of an organization corporate culture is strengthened.</p>
+      </div>
+      <div class="card">
     <h4>Job Design and Job Satisfaction</h4>
     <p>This is the third concept I will carry into my future career. My experience managing both field operations and administrative work showed me that employee engagement depends on having control over how work gets done and spending time on meaningful tasks rather than monotonous work. In the future, as a manager or business owner, I will design roles that delegate routine processing to technology while empowering people with the autonomy, mentorship, and decision-making authority needed to stay motivated and do their best work.</p>
+      </div>
+    </div>
   </article>
   <a class="back" href="#home">Back to top</a>
 </section>
@@ -321,15 +369,16 @@
     <p class="byline">By Caleb McFarlane</p>
   </header>
 
-  <article id="caleb-scholarly">
-    <h3>Scholarly Article: Gen Z Perceptions and Expectations Upon Entering the Workforce</h3>
+  <article id="caleb-scholarly" class="scholarly">
+    <h3><span class="kicker">Scholarly Article</span>Gen Z Perceptions and Expectations Upon Entering the Workforce</h3>
     <dl class="meta">
-      <dt>Source and type</dt><dd>Scholarly peer-reviewed article. <em>European Review of Applied Sociology</em></dd>
-      <dt>Author</dt><dd>A. E. Mărginean</dd>
-      <dt>Date</dt><dd>2021</dd>
-      <dt>OB concepts</dt><dd><ul class="tags"><li>Expectancy theory</li><li>Equity theory</li></ul></dd>
+      <div><dt>Source and type</dt><dd>Scholarly peer-reviewed article. <em>European Review of Applied Sociology</em></dd></div>
+      <div><dt>Author</dt><dd>A. E. Mărginean</dd></div>
+      <div><dt>Date</dt><dd>2021</dd></div>
+      <div><dt>OB concepts</dt><dd><ul class="tags"><li>Expectancy theory</li><li>Equity theory</li></ul></dd></div>
     </dl>
     <p>Mărginean (2021) wrote “Gen Z Perceptions and Expectations Upon Entering the Workforce” in the <em>European Review of Applied Sociology</em>. This article took a dive into some of the expectations Gen Z has of their employers, managers and their future careers. Mărginean’s research was based on an online survey of 69 Gen Z participants located in Romania, and the research explored their preferences on workplace environments, expectations in a workplace and career goals when they were to enter the workforce (Mărginean, 2021).</p>
+    <blockquote class="pull" aria-hidden="true">Gen Z is seeking opportunities to develop personally and professionally.</blockquote>
     <p>The study identified that Generation Z values financial stability, opportunities to develop and acquire new skills while maintaining a sense of security. One of the most interesting findings was that 94% of the participants from the study indicated that learning and training opportunities were most valuable to them personally. The study also shows that around 74% of those surveyed valued the opportunity to build connections and relationships with fellow peers and co-workers, meanwhile 60% of the individuals preferred a combination of remote and in-person work, rather than completely working remote (Mărginean, 2021).</p>
     <p>Based off my understanding from course concepts, this relates to the expectancy theory as employees seem to be more motivated when they believe that their effort will lead to better performance, which will ultimately result in rewards or incentives that they value. Gen Z employees who see opportunities for skill development, training and career advancement may be more motivated than others to put effort into their work. Equity theory can be another organizational behaviour concept that ties into this, because the research suggests that fair pay, recognition, along with job security are important to employees from Gen Z. Employees compare what they can contribute to an organization with what benefits they will gain in return. If an employee feels as if they are not being treated fairly or equally to another colleague, it is common to see their motivation and satisfaction deteriorate.</p>
     <p>For future of work, the research Mărginean conducted shows that employers will need to adapt and understand that the younger generation is seeking more than just pay. Gen Z is seeking opportunities to develop personally and professionally. Employers that are willing to provide mentorship, training and fair opportunities amongst everyone will have an easier time attracting and retaining employees from generation Z. By applying equity and expectancy theory, organizations will be capable of creating workspaces where employees will feel motivated and valued.</p>
@@ -339,8 +388,8 @@
     </div>
   </article>
 
-  <article id="caleb-article">
-    <h3>Business Article: What Gen Z Wants from Canadian Employers</h3>
+  <article id="caleb-article" class="article">
+    <h3><span class="kicker">Business Article</span>What Gen Z Wants from Canadian Employers</h3>
     <dl class="meta">
       <dt>Source and type</dt><dd>Recent business article. <em>Smith Business Insight</em>, Smith School of Business, Queen's University</dd>
       <dt>Author</dt><dd>E. Ng</dd>
@@ -357,7 +406,7 @@
     </div>
   </article>
 
-  <article id="caleb-personal">
+  <article id="caleb-personal" class="personal">
     <h3>Personal Example</h3>
     <dl class="meta">
       <dt>OB concepts</dt><dd><ul class="tags"><li>Expectancy theory</li><li>Leadership</li></ul></dd>
@@ -365,14 +414,21 @@
     <p>One personal connection that connects to Gen Z workplace expectations was my time working at Flynn Construction. During my employment which took place over the spring and summer of 2023 I worked as an intern assisting in project management. I felt management had high expectations which is understandable as Flynn Construction is a successful and well-known company. Although I understood that having high expectations is part of working in a professional environment, I was often left feeling as if there was a lack of support, communication or guidance from upper management and colleagues to reach those set expectations. Being very new often referred to as “green” in the industry, I was still learning how to go about operations and would have most certainly benefited from more mentorship and feedback on projects I was working on from the more experienced colleagues. This experience connects into the expectancy theory, which explains why employees are more motivated when they believe that their effort will lead to good performance which results in rewards, which in my case would have been recognition. When employees are expected to perform at a high level without proper support or training, they are often left feeling unmotivated, again relating this to my situation, as these feelings are very accurate as to how I felt. Another concept is leadership, as managers need to provide direction, communicate effectively and help employees develop rather than expecting results. My experience showed me specifically, that Gen Z employees want to be challenged and given responsibility, but they also seek employers who are willing to take the time to allow them to develop. I do believe there needs to be a balance between high expectations and providing employees with the adequate tools, guidance and support they need.</p>
   </article>
 
-  <article id="caleb-skills">
+  <article id="caleb-skills" class="skills">
     <h3>Skills Summary</h3>
     <dl class="meta">
       <dt>Course concepts</dt><dd><ul class="tags"><li>Goal-setting</li><li>Self-efficacy</li><li>Team development</li></ul></dd>
     </dl>
-    <p>Goal-setting theory has played a big role in my baseball career playing for Okanagan College because improving as a player requires setting specific goals and consistently working towards them. Whether I was focusing on improving my contact while hitting, which will result in my batting average increasing, or becoming more agile and improving my fast twitch muscles to help my defensive reads in the outfield, I have learned that setting clear goals gives me something to work towards. Instead of me stating that I want to become a better baseball player, setting specific goals allows me to measure my progress over time. Playing college baseball has taught me that achieving goals takes discipline, commitment and consistent effort, this is important because results do not appear overnight which some people forget. I will continue to use the goal-setting theory throughout my career, both in sports and in the workplace, having clear objectives will help me stay motivated while being able to measure my improvement.</p>
+    <div class="cards">
+      <div class="card">    <p>Goal-setting theory has played a big role in my baseball career playing for Okanagan College because improving as a player requires setting specific goals and consistently working towards them. Whether I was focusing on improving my contact while hitting, which will result in my batting average increasing, or becoming more agile and improving my fast twitch muscles to help my defensive reads in the outfield, I have learned that setting clear goals gives me something to work towards. Instead of me stating that I want to become a better baseball player, setting specific goals allows me to measure my progress over time. Playing college baseball has taught me that achieving goals takes discipline, commitment and consistent effort, this is important because results do not appear overnight which some people forget. I will continue to use the goal-setting theory throughout my career, both in sports and in the workplace, having clear objectives will help me stay motivated while being able to measure my improvement.</p>
+      </div>
+      <div class="card">
     <p>Self-efficacy is another concept that has been a factor in my baseball career because it relates directly to my ability to be able to perform a skill successfully. During my baseball career at the college, I’ve faced numerous situations where confidence is very beneficial, these situations include taking an at bat or making a play in the outfield. Over the years I’ve learnt that confidence comes from repetition, preparation and practice. There are times I have made mistakes or have felt unhappy with my play, but being able to move forward and trust my abilities have allowed me to become a better baseball player. Playing a college sport has shown me that having confidence in yourself is important, but increasing your confidence also comes from putting in the time and dedication. If I can use the same mindset when it comes to my professional career, being confident when taking on different responsibilities, I will improve through experiences.</p>
+      </div>
+      <div class="card">
     <p>Teamwork and group development have been some of the biggest life lessons I’ve learnt through playing baseball, whether in high school or college. Playing on multiple different teams has allowed me to play with many different people who each individually have different personalities. I have learnt that personal skill can only take a team so far; if a team has the most skilled players but poor chemistry, the team is bound to come up short of the end goal, which I have experienced throughout my playing career. Throughout a baseball season teams face adversity, but being able to work through those situations is critical for the team’s success. This connects to the stages of team development as teams need time to develop relationships, establish roles, like who will be a leader of the team, the person who will step-up and bring the team together. I can carry these lessons into my future workplace because being successful in the business world requires similar concepts such as collaboration and communication and the ability to work with different personalities to reach the end goal.</p>
+      </div>
+    </div>
   </article>
   <a class="back" href="#home">Back to top</a>
 </section>
@@ -383,13 +439,13 @@
     <p class="byline">By Juliana Silva Reis</p>
   </header>
 
-  <article id="juliana-scholarly">
-    <h3>Scholarly Article: Understanding the Burnout Experience: Recent Research and Its Implications for Psychiatry</h3>
+  <article id="juliana-scholarly" class="scholarly">
+    <h3><span class="kicker">Scholarly Article</span>Understanding the Burnout Experience: Recent Research and Its Implications for Psychiatry</h3>
     <dl class="meta">
-      <dt>Source and type</dt><dd>Scholarly peer-reviewed article (research review). <em>World Psychiatry</em> (academic journal)</dd>
-      <dt>Authors</dt><dd>Christina Maslach and Michael P. Leiter</dd>
-      <dt>Date</dt><dd>June 2016</dd>
-      <dt>OB concepts</dt><dd><ul class="tags"><li>Equity theory</li><li>Expectancy theory</li></ul></dd>
+      <div><dt>Source and type</dt><dd>Scholarly peer-reviewed article (research review). <em>World Psychiatry</em> (academic journal)</dd></div>
+      <div><dt>Authors</dt><dd>Christina Maslach and Michael P. Leiter</dd></div>
+      <div><dt>Date</dt><dd>June 2016</dd></div>
+      <div><dt>OB concepts</dt><dd><ul class="tags"><li>Equity theory</li><li>Expectancy theory</li></ul></dd></div>
     </dl>
     <h4>Summary</h4>
     <p>Burnout is a growing problem in today's workplace. In this research review, Maslach and Leiter (2016) define burnout as "a psychological syndrome emerging as a prolonged response to chronic interpersonal stressors on the job" (p. 103). They identify six areas of job stressors: workload, control, reward, community, fairness, and values. They find that burnout leads to lower productivity, quality of work, job satisfaction, and job commitment.</p>
@@ -399,8 +455,9 @@
     </div>
   </article>
 
-  <article id="juliana-podcast">
-    <h3>Podcast: What Do We Need to Know About Burnout?</h3>
+  <article id="juliana-podcast" class="podcast">
+    <h3><span class="kicker">Podcast</span>What Do We Need to Know About Burnout?</h3>
+    <a class="listen" href="https://www.cbc.ca/listen/cbc-podcasts/410-the-dose/episode/16189820-what-do-we-need-to-know-about-burnout" target="_blank" rel="noopener"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"/></svg>Listen to the episode</a>
     <dl class="meta">
       <dt>Source and type</dt><dd>Podcast. <em>The Dose</em> (CBC). The podcast looks at health news, and they bring in experts to discuss science topics in understandable ways.</dd>
       <dt>Speakers</dt><dd>Dr. Brian Goldman hosts the podcast, with guest speaker Michael Leiter, a professor of psychology and author of <em>The Burnout Challenge</em> (the book referenced).</dd>
@@ -416,9 +473,8 @@
     </div>
   </article>
 
-  <article id="juliana-analysis">
-    <h3>Connecting the Research to Organizational Behaviour</h3>
-    <h4>OB Concepts</h4>
+  <article id="juliana-analysis" class="analysis">
+    <h3>OB Concepts</h3>
     <p>From the six areas the article mentioned, several of them tie back to our course concepts.</p>
     <p>Fairness connects to equity theory in that when people perceive there is a gap (inequity) when comparing their inputs and outcomes (effort compared to pay and recognition) to a coworker (the referent), they try to balance and restore fairness. If fairness can't be properly restored, employees might reduce their effort, pull away, or even leave, which are key indicators of burnout.</p>
     <p>Reward connects to instrumentality in expectancy theory, in that people tend to link performance and rewards, thinking "if I perform well, will I actually get the reward?" If the answer is no, expectancy theory says that if any part is near zero, motivation starts to lower with it. If there's no motivation, it puts employees at risk of developing burnout.</p>
@@ -429,23 +485,29 @@
     <p>This matters for the future of work because in today's age, workers tend to place more worth on their well-being, not just pay. With a new generation of workers entering the workforce with demands and expectations, workplaces need to be able to manage workload and employee recovery where people are always connected.</p>
   </article>
 
-  <article id="juliana-personal">
+  <article id="juliana-personal" class="personal">
     <h3>Personal Example</h3>
     <dl class="meta">
       <dt>OB concepts</dt><dd><ul class="tags"><li>Equity theory</li><li>Expectancy theory</li></ul></dd>
     </dl>
     <p>I worked at Amore Mio, a café and gelato shop, from February till early November, and during school I worked weekends. Trying to balance my personal life, a job, and being a full-time student can be difficult, and at times draining. The pace of work could be unpredictable, but the shop would usually be busy in the summers and start to slow down as winter approached. The job would require me to be able to juggle multiple tasks at once, like making people's coffee orders, scooping gelato, taking breakfast orders, bringing food to tables, cleaning dishes, and knowing how to complete all opening and closing duties.</p>
+    <blockquote class="pull" aria-hidden="true">Even though I went above and beyond, I tended to feel overlooked.</blockquote>
     <p>Even though I went above and beyond, I tended to feel overlooked. Despite my seniority, and being treated like a shift leader, I got overlooked for raises while others got them. This connects to equity theory because when comparing my inputs (seniority, skill, and effort) to my coworkers (my referents), I realized my outcomes (pay and recognition) were lower. It also connects to expectancy theory, because my effort led to good performance, but my performance didn't lead to a reward (a raise), meaning instrumentality was missing, which led to a drop in my motivation. I was also promised enough hours to apply for EI while they were closed for winter, but they hired too many people during the summer and my hours were cut. These problems also align with Maslach and Leiter's (2016) areas of reward, fairness, and workload, which put workers at risk of burnout. As a result, I don't plan on returning.</p>
     <p>For 8 years, my dad worked mornings while taking night classes at university for mechanical engineering. I admire the resilience and perseverance it must've taken him to accomplish something like that. However, his generation is more likely to push through stress, putting work ahead of their own personal well-being. My generation is more concerned about work-life balance, burnout, job satisfaction, and expects recognition and fairness. My experience reflects exactly this, because instead of staying and accepting my circumstances, I've decided to look for other employment because I recognize that I value a workplace that rewards my effort.</p>
   </article>
 
-  <article id="juliana-skills">
+  <article id="juliana-skills" class="skills">
     <h3>Skills Summary</h3>
     <dl class="meta">
       <dt>Course concepts</dt><dd><ul class="tags"><li>Equity theory</li><li>Emotional labour</li></ul></dd>
     </dl>
-    <p>Equity theory has helped me better understand the connection between inputs and outcomes, and how when there's a fairness gap compared to others, motivation drops. I've experienced this at work and school, when I perceive my inputs (time, effort, knowledge) to be higher, and my outcomes (pay, grades, recognition) to be lower compared to my peers or coworkers. In the future, I'll be better equipped to recognize and deal with unfairness, like asking for a raise and explaining why I might deserve it.</p>
+    <div class="cards">
+      <div class="card">    <p>Equity theory has helped me better understand the connection between inputs and outcomes, and how when there's a fairness gap compared to others, motivation drops. I've experienced this at work and school, when I perceive my inputs (time, effort, knowledge) to be higher, and my outcomes (pay, grades, recognition) to be lower compared to my peers or coworkers. In the future, I'll be better equipped to recognize and deal with unfairness, like asking for a raise and explaining why I might deserve it.</p>
+      </div>
+      <div class="card">
     <p>Learning more about emotional labour has helped me recognize my patterns of surface acting and deep acting, and their differences. At Amore Mio, I mostly used surface acting because interactions were short, and it could be challenging to genuinely feel positive when I was dealing with a difficult customer or having a hard day. Being able to adjust your emotions to fit a situation isn't always easy given the circumstances and requires emotional intelligence. Entering the workforce with the ability to regulate and adjust your emotions is really important. Negative feelings can affect my work and communication, especially in professional settings like meetings with clients, presentations, or even just talking with coworkers.</p>
+      </div>
+    </div>
   </article>
   <a class="back" href="#home">Back to top</a>
 </section>

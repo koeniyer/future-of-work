@@ -5,15 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Future of Work | Group 8 | BUAD 262</title>
 <meta name="description" content="The Future of Work: a website portfolio by Group 8, BUAD 262 Organizational Behaviour, Okanagan College.">
-<!--
-  HOW TO EDIT THIS FILE
-  - Everything is in this one file. Open it in any text editor (VS Code, TextEdit in plain-text mode, Notepad).
-  - Every spot that still needs content is a box with class="placeholder". Search this file for
-    "PASTE HERE" to jump to each one. Replace the whole placeholder <div> with your <p> paragraphs.
-  - Each paragraph goes inside <p> ... </p>.
-  - Before submitting: search for "placeholder" and "editor-note". Nothing with those classes should be left.
-  - Hosting: drag the folder containing this file (already named index.html) onto Netlify Drop, or put it in a GitHub Pages repo.
--->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -35,7 +26,6 @@
   a:focus-visible{outline:3px solid #f2b705;outline-offset:3px;border-radius:2px}
   p{margin:0 0 1.15rem}
 
-  /* Navigation */
   .topnav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);
           border-bottom:1px solid var(--line);font-family:var(--sans)}
   .topnav ul{list-style:none;margin:0 auto;padding:0 1rem;max-width:1180px;display:flex;gap:.1rem;
@@ -49,36 +39,29 @@
   .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   .topnav .home{font-family:var(--serif);font-weight:600;font-size:1rem;color:var(--ink)}
 
-  /* Layout */
   main{max-width:1180px;margin:0 auto;padding:0 1.5rem 5rem}
   .page{padding-top:4.5rem}
   .bleed{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
 
-  /* Masthead */
   .hero{padding-top:3.5rem}
   .hero .course{font-family:var(--sans);font-size:.88rem;font-weight:500;color:var(--muted);margin:0 0 1.5rem}
   .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(3.6rem,12vw,9.5rem);line-height:.92;
            letter-spacing:-.035em;margin:0 0 2rem;font-variation-settings:"opsz" 72}
   .hero .deck{display:grid;gap:1.5rem 3rem;grid-template-columns:1fr;margin-bottom:3.5rem}
-  @media (min-width:900px){.hero .deck{grid-template-columns:5fr 7fr}}
-  .hero .sub{font-size:1.5rem;line-height:1.35;font-style:italic;margin:0}
+    .hero .sub{font-size:1.5rem;line-height:1.35;font-style:italic;margin:0}
   .members{list-style:none;padding:0;margin:.9rem 0 0;font-family:var(--sans);font-size:.92rem;color:var(--muted)}
   .members li{display:inline}
   .members li:not(:last-child)::after{content:",\00a0"}
-  .intro p{max-width:40rem}
 
-  /* Contents bands: the signature element */
   .contents{list-style:none;margin-top:0;margin-bottom:0;padding:0}
   .contents a{display:grid;grid-template-columns:1fr;gap:.3rem 2rem;align-items:baseline;text-decoration:none;color:#fff;
               background:var(--c);padding:1.6rem max(1.5rem,calc(50vw - 590px + 1.5rem))}
-  @media (min-width:760px){.contents a{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto;padding-top:2rem;padding-bottom:2rem}}
+  @media (min-width:760px){.contents a{grid-template-columns:minmax(0,1fr) auto;padding-top:2rem;padding-bottom:2rem}}
   .contents .t{font-size:clamp(2rem,5vw,3.6rem);line-height:1.05;letter-spacing:-.02em;font-weight:500}
-  .contents .d{font-size:1.05rem;line-height:1.45;opacity:.88}
   .contents .by{font-family:var(--sans);font-size:.85rem;font-weight:600;opacity:.9}
   .contents a:hover .t,.contents a:focus-visible .t{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.12em}
   .contents a:focus-visible{outline-offset:-6px;outline-color:#fff}
 
-  /* Theme opener bands */
   .opener{background:var(--c);color:#fff;padding:4.5rem max(1.5rem,calc(50vw - 590px + 1.5rem)) 3.5rem;margin-bottom:3.5rem}
   .opener h2{font-weight:500;font-size:clamp(2.6rem,7vw,5.5rem);line-height:1;letter-spacing:-.03em;margin:0 0 1.25rem;max-width:16ch}
   .opener .byline{font-family:var(--sans);font-size:.95rem;font-weight:600;margin:0;opacity:.92}
@@ -86,7 +69,6 @@
   .topnav a[href="#flexibility"]{--c:var(--flex)} .topnav a[href="#ai"]{--c:var(--ai)}
   .topnav a[href="#genz"]{--c:var(--genz)} .topnav a[href="#wellbeing"]{--c:var(--well)}
 
-  /* Articles: margin column for source details on wide screens */
   article{padding:0 0 3.5rem;margin:0 0 3.5rem;border-bottom:1px solid var(--line)}
   .theme article:last-of-type{border-bottom:none}
   article h3{font-weight:500;font-size:clamp(1.7rem,3.4vw,2.4rem);line-height:1.15;letter-spacing:-.015em;margin:0 0 1.5rem;max-width:30ch}
@@ -115,7 +97,6 @@
 
   .back{font-family:var(--sans);font-size:.85rem;font-weight:600;color:var(--muted)}
 
-  /* Placeholders (delete before submitting) */
   .placeholder{background:var(--todo-bg);border:2px dashed var(--todo-line);border-radius:6px;padding:1rem 1.1rem;
                color:var(--todo-ink);margin:0 0 1.25rem;font-family:var(--sans);font-size:.9rem;line-height:1.5}
   .placeholder strong{display:block;margin-bottom:.35rem}
@@ -124,7 +105,6 @@
   .editor-note{background:#eef4ff;border:1px solid #b9cdf2;border-radius:6px;padding:.9rem 1.1rem;font-family:var(--sans);
                font-size:.9rem;line-height:1.5;color:#29406b;margin:1rem 0 2rem;max-width:44rem}
 
-  /* Index pages */
   .page > h2{font-weight:500;font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.025em;line-height:1.05;margin:0 0 .5rem}
   .page > .byline{font-style:italic;color:var(--muted);font-size:1.15rem;margin:0 0 2rem}
   .index{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;border-top:1px solid var(--ink)}
@@ -136,7 +116,6 @@
   .index .who:hover{text-decoration:underline}
   .index .what{display:block;color:var(--muted);font-size:1rem;line-height:1.5;margin-top:.25rem}
 
-  /* References */
   .refs > p{max-width:46rem;padding-left:2.5rem;text-indent:-2.5rem;margin:0 0 1rem;word-break:break-word;font-size:1rem;line-height:1.6}
   .refs .placeholder{max-width:46rem}
 
@@ -163,7 +142,6 @@
 
 <main>
 
-<!-- ===================================================== HOME ===================================================== -->
 <section id="home" class="page hero">
   <p class="course">BUAD 262 Organizational Behaviour, Okanagan College</p>
   <h1>The Future<br>of Work</h1>
@@ -171,30 +149,23 @@
     <div>
       <p class="sub">By Noah Steingart, Koen Iyer, Caleb McFarlane, and Juliana Silva Reis</p>
     </div>
-    <div class="intro">
-      <!-- Draft intro written as a starting point. The group should review and edit it on Thursday. -->
-      <p>Work is changing quickly. Where people work, the tools they use, what new employees expect from their employers, and how organizations protect the health of their people are all being rethought at the same time. This portfolio looks at those changes through the lens of organizational behaviour.</p>
-      <p>Each group member focused on one theme and gathered media on it: corporate cultures, recent business articles, scholarly peer-reviewed articles, and podcasts. For every item we summarize the source, connect it to concepts from the course, and explain what it means for the future of work. Each member also shares a personal workplace example and a summary of the course concepts they will use in their own careers.</p>
-    </div>
   </div>
 
   <h2 class="visually-hidden">Our four themes</h2>
   <ul class="contents bleed">
-    <li><a href="#flexibility" style="--c:var(--flex)"><span class="t">Flexibility</span><span class="d">Remote and hybrid work, and what it takes to make them work.</span><span class="by">Koen Iyer</span></a></li>
-    <li><a href="#ai" style="--c:var(--ai)"><span class="t">AI and Technology</span><span class="d">How AI is changing work for employees and managers.</span><span class="by">Noah Steingart</span></a></li>
-    <li><a href="#genz" style="--c:var(--genz)"><span class="t">Gen Z Expectations</span><span class="d">What the newest generation of workers expects, and what employers expect back.</span><span class="by">Caleb McFarlane</span></a></li>
-    <li><a href="#wellbeing" style="--c:var(--well)"><span class="t">Well-being and Burnout</span><span class="d">What drives burnout, and what managers and employees can do about it.</span><span class="by">Juliana Silva Reis</span></a></li>
+    <li><a href="#flexibility" style="--c:var(--flex)"><span class="t">Flexibility</span><span class="by">Koen Iyer</span></a></li>
+    <li><a href="#ai" style="--c:var(--ai)"><span class="t">AI and Technology</span><span class="by">Noah Steingart</span></a></li>
+    <li><a href="#genz" style="--c:var(--genz)"><span class="t">Gen Z Expectations</span><span class="by">Caleb McFarlane</span></a></li>
+    <li><a href="#wellbeing" style="--c:var(--well)"><span class="t">Well-being and Burnout</span><span class="by">Juliana Silva Reis</span></a></li>
   </ul>
 </section>
 
-<!-- ===================================================== FLEXIBILITY (KOEN) ===================================================== -->
 <section id="flexibility" class="page theme">
   <header class="opener bleed">
     <h2>Flexibility: Remote and Hybrid Work</h2>
     <p class="byline">By Koen Iyer</p>
   </header>
 
-  <!-- ---------- Corporate Culture ---------- -->
   <article id="koen-culture">
     <h3>Corporate Culture: Dropbox, "Virtual First"</h3>
     <dl class="meta">
@@ -215,7 +186,6 @@
     </div>
   </article>
 
-  <!-- ---------- Business Article ---------- -->
   <article id="koen-article">
     <h3>Business Article: Hybrid Still Isn't Working</h3>
     <dl class="meta">
@@ -235,7 +205,6 @@
     </div>
   </article>
 
-  <!-- ---------- Personal Example ---------- -->
   <article id="koen-personal">
     <h3>Personal Example</h3>
     <dl class="meta">
@@ -246,7 +215,6 @@
     <p>Traditionally, the previous generation followed a more set path, where you went to school, got a job, and got going, and you often stayed in that job even if you were not satisfied. My generation is more willing to leave a job that does not fit and build a different path, including self-employment, because flexibility and satisfaction matter more in that decision, not just pay and security. My experience shows that change, since I left a set schedule and a set location for work I control, and my satisfaction is much higher because of it.</p>
   </article>
 
-  <!-- ---------- Skills Summary ---------- -->
   <article id="koen-skills">
     <h3>Skills Summary</h3>
     <dl class="meta">
@@ -259,7 +227,6 @@
   <a class="back" href="#home">Back to top</a>
 </section>
 
-<!-- ===================================================== AI AND TECHNOLOGY (NOAH) ===================================================== -->
 <section id="ai" class="page theme">
   <header class="opener bleed">
     <h2>AI and Technology</h2>
@@ -348,7 +315,6 @@
   <a class="back" href="#home">Back to top</a>
 </section>
 
-<!-- ===================================================== GEN Z (CALEB) ===================================================== -->
 <section id="genz" class="page theme">
   <header class="opener bleed">
     <h2>Gen Z Expectations</h2>
@@ -411,7 +377,6 @@
   <a class="back" href="#home">Back to top</a>
 </section>
 
-<!-- ===================================================== WELL-BEING (JULIANA) ===================================================== -->
 <section id="wellbeing" class="page theme">
   <header class="opener bleed">
     <h2>Well-being and Burnout</h2>
@@ -485,23 +450,18 @@
   <a class="back" href="#home">Back to top</a>
 </section>
 
-<!-- ===================================================== PERSONAL EXAMPLES (INDEX) ===================================================== -->
-<!-- Each person's text lives once, inside their theme section. This page links to them, so nothing has to be pasted twice. -->
 <section id="personal-examples" class="page">
   <h2>Personal Examples</h2>
-  <p class="byline">Each group member's own workplace experience, viewed through organizational behaviour concepts.</p>
   <ul class="index">
-    <li><a class="who" href="#koen-personal">Koen Iyer</a><br><span class="what">Sales for a custom home builder, and moving to self-employment. Concepts: job satisfaction, expectancy theory.</span></li>
-    <li><a class="who" href="#noah-personal">Noah Steingart</a><br><span class="what">Running his own landscaping and property services business. Concepts: job satisfaction, expectancy theory.</span></li>
-    <li><a class="who" href="#caleb-personal">Caleb McFarlane</a><br><span class="what">Project management internship at Flynn Construction. Concepts: expectancy theory, leadership.</span></li>
-    <li><a class="who" href="#juliana-personal">Juliana Silva Reis</a><br><span class="what">Working at a café and gelato shop while studying full time. Concepts: equity theory, expectancy theory.</span></li>
+    <li><a class="who" href="#koen-personal">Koen Iyer</a><br><span class="what">Concepts: job satisfaction, expectancy theory.</span></li>
+    <li><a class="who" href="#noah-personal">Noah Steingart</a><br><span class="what">Concepts: job satisfaction, expectancy theory.</span></li>
+    <li><a class="who" href="#caleb-personal">Caleb McFarlane</a><br><span class="what">Concepts: expectancy theory, leadership.</span></li>
+    <li><a class="who" href="#juliana-personal">Juliana Silva Reis</a><br><span class="what">Concepts: equity theory, expectancy theory.</span></li>
   </ul>
 </section>
 
-<!-- ===================================================== SKILLS SUMMARIES (INDEX) ===================================================== -->
 <section id="skills" class="page">
   <h2>Skills Summaries</h2>
-  <p class="byline">The course concepts each of us will carry into our careers.</p>
   <ul class="index">
     <li><a class="who" href="#koen-skills">Koen Iyer</a><br><span class="what">Goal-setting, self-efficacy, job satisfaction.</span></li>
     <li><a class="who" href="#noah-skills">Noah Steingart</a><br><span class="what">Projection, workplace stress management, perceptual bias, job design and job satisfaction.</span></li>
@@ -510,7 +470,6 @@
   </ul>
 </section>
 
-<!-- ===================================================== REFERENCES ===================================================== -->
 <section id="references" class="page refs">
   <h2>References</h2>
 
@@ -537,7 +496,6 @@
 </footer>
 
 <script>
-  // Highlights the current section in the top navigation while scrolling.
   (function(){
     var links=[].slice.call(document.querySelectorAll('.topnav a[href^="#"]'));
     var map={}; links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});

@@ -6,7 +6,14 @@ Website portfolio for **BUAD 262 Organizational Behaviour**, Okanagan College (F
 
 **Live site:** https://koeniyer.github.io/future-of-work/
 
-## What's in this repo
+## Themes
+
+1. Flexibility (Koen Iyer)
+2. AI and Technology (Noah Steingart)
+3. Gen Z Expectations (Caleb McFarlane)
+4. Well-being and Burnout (Juliana Silva Reis)
+
+## About this repo
 
 | File | What it is |
 |---|---|
@@ -14,13 +21,4 @@ Website portfolio for **BUAD 262 Organizational Behaviour**, Okanagan College (F
 | `README.md` | This file. |
 | `.nojekyll` | Tells GitHub Pages to serve the files as-is. |
 
-## Themes
-
-1. Flexibility: remote and hybrid work (Koen Iyer)
-2. AI and Technology (Noah Steingart)
-3. Gen Z Expectations (Caleb McFarlane)
-4. Well-being and Burnout (Juliana Silva Reis)
-
-## Updating the site
-
-Every spot still waiting for content is marked `PASTE HERE` in `index.html`. Edit the file and commit it, and the live site updates within a minute or two.
+All written content, research, and references are the group's own work, with each section credited to its author. The site's layout and code were built with the help of an AI tool, as permitted by the instructor.
